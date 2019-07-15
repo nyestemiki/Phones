@@ -12,13 +12,8 @@ html, body {
     z-index: 10;
 }
 
-.logo {
-    padding: 20px;
-}
-
-.logo img{
-    max-width: 15px;
-}
+.logo { padding: 20px; }
+.logo img{ max-width: 15px; }
 
 .tiles {
     display: flex;
@@ -33,18 +28,16 @@ html, body {
 }
 
 .phones {
-  
     position: fixed;
     display: flex;
-    width: 100%;
     justify-content: space-between;
+    width: 100%;
     height: 100%;
-    vertical-align: baseline;
 }
 
 .brand {
     will-change: width;
-    transition: all .4s;
+    transition: width 2s;
     height: 100%;
     width: 100%;
     display: grid;
@@ -52,48 +45,34 @@ html, body {
     place-items: center;
 }
 
-.brand:hover {
-    width: 135%;
-}
+.brand:hover { width: 135%; }
 
 .img {
     vertical-align: baseline;
     transform: scale(.75);
     will-change: transform;
-    transition: all .5s;
+    transition: transform .5s;
 }
 
-.brand:hover .img {
-    transform: scale(1);
-}
-
-.brand:hover .brand__name {
-    font-size: 25px;
-}
+.brand:hover .img { transform: scale(1); }
+.brand:hover .brand__name { font-size: 25px; }
 
 .brand img {
-    max-height: 75%;
+    width: 300px; 
     max-width: 98%;
+    max-height: 75%;
 }
 
 .brand__name {
     text-align: left;
     text-transform: uppercase;
     padding: 20px;
-    letter-spacing: 2px; 
+    letter-spacing: 4px; 
     font-weight: 500;
     will-change: font-size;
-    transition: all .5s;
+    transition: font .5s;
 }
 
-.brand1 {
-    background-color: lightpink;
-}
-
-.brand2 {
-    background-color: lightgreen;
-}
-
-.brand3 {
-    background-color: lightblue;
-}
+.brand1 { background-color: lightpink; }
+.brand2 { background-color: lightgreen; }
+.brand3 { background-color: lightblue; }
