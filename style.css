@@ -45,7 +45,11 @@ html, body {
     place-items: center;
 }
 
-.brand:hover { width: 300%;  }
+.brand_nowidth {
+    width: 0;
+}
+
+.brand:hover { width: 150%;  }
 
 .img {
     vertical-align: baseline;
@@ -72,5 +76,5 @@ html, body {
 }
 
 .brand1 { background-color: lightpink; }
-.brand2 { background-color: lightgreen; }
-.brand3 { background-color: lightblue; }
+.brand2 { background-color: lightgoldenrodyellow; }
+.brand3 { background-color: lightsalmon; }
