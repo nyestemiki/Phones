@@ -45,21 +45,19 @@ html, body {
     place-items: center;
 }
 
-.brand:hover { width: 135%; }
+.brand:hover { width: 300%;  }
 
 .img {
     vertical-align: baseline;
     transform: scale(.75);
-    will-change: transform;
-    transition: transform .5s;
+    will-change: transform, opacity;
+    transition: all 1s;
 }
 
 .brand:hover .img { transform: scale(1); }
 .brand:hover .brand__name { font-size: 25px; }
 
 .brand img {
-    width: 300px; 
-    max-width: 98%;
     max-height: 75%;
 }
 
@@ -70,7 +68,7 @@ html, body {
     letter-spacing: 4px; 
     font-weight: 500;
     will-change: font-size;
-    transition: font .5s;
+    transition: font-size 1s;
 }
 
 .brand1 { background-color: lightpink; }
