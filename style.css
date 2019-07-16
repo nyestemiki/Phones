@@ -45,9 +45,7 @@ html, body {
     place-items: center;
 }
 
-.brand_nowidth {
-    width: 0;
-}
+.brand_nowidth { width: 0; }
 
 .brand:hover { width: 150%;  }
 
@@ -58,6 +56,9 @@ html, body {
     transition: all 1s;
 }
 
+.img_hide { opacity: 0; display: none; }
+.img_show { opacity: 1; display: block; }
+ 
 .brand:hover .img { transform: scale(1); }
 .brand:hover .brand__name { font-size: 25px; }
 
@@ -78,3 +79,45 @@ html, body {
 .brand1 { background-color: lightpink; }
 .brand2 { background-color: lightgoldenrodyellow; }
 .brand3 { background-color: lightsalmon; }
+
+.phone_selected {
+    display: grid;
+    grid-template-columns: 30% 30% auto;
+}
+
+.info, .models {
+    display: none;
+}
+
+.info_show {
+    display: block;
+}
+
+.models_show {
+    display: block;
+}
+
+.brand_name_hide {
+    display: none;
+}
+
+.info {
+    padding: 30px;
+}
+
+.info > * {
+    padding: 15px;
+}
+
+.model {
+    font-weight: 600;
+    font-size: 35px;
+    letter-spacing: 4px;
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    float: right;
+}

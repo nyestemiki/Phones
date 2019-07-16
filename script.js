@@ -2,55 +2,61 @@ const brands = document.querySelectorAll('.brand');
 const logo = document.querySelector('.logo img');
 const images = [...document.querySelectorAll('.phones img')];
 
+let lastSelected;
+
+// Hides not-selected brands
 function selectPhone() {
     document.title = [...document.querySelectorAll('.brand__name')].
         filter(b => b.dataset.brand === this.dataset.brand)[0].textContent;
-    // Making the selected brand full-screen
-    this.style.width =  document.body.getBoundingClientRect() + "px";
+
     // Hiding the not-selected brands
     brands.forEach(brand => {
         if (brand !== this) {
            brand.classList.add('brand_nowidth');
         }
     });
+
     // Animating out the images
     setTimeout(() => {
         images.forEach(image => {
             if(image.dataset.brand !== this.dataset.brand)
-                image.style.opacity = 0;
+                image.classList.add('img_hide');
         })
-    }, 600);
-    // Hiding the not-selected brands
+    }, 300);
+
     setTimeout(() => {
-        brands.forEach(brand => {
-            if (brand !== this) {
-                brand.style.display = "none";
-            }
-        })
-    }, 2000); // Change to transition of fullscreening
+        this.classList.add('phone_selected');
+        this.querySelector('.brand__name').classList.add('brand_name_hide');
+        this.querySelector('.info').classList.add('info_show');
+        this.querySelector('.models').classList.add('models_show');
+    }, 1000);
+
+    
+
+    lastSelected = this;
 }
 
+// Shows all the brands
 function startPage() {
     document.title = "Phones";
 
-    // Display the hidden brands
+    // Displaying the hidden brands
     brands.forEach(brand => {
-        if (brand !== this)
-            brand.style.display = "grid";
+        brand.classList.remove('brand_nowidth');
     });
-    // Animating in the hidden brands
-    setTimeout(() => {
-        brands.forEach(brand => {
-            brand.classList.remove('brand_nowidth');
-        });
-    }, 200); 
+
     // Animating in the hidden images
     setTimeout(()=> {
         images.forEach(image => {
             if(image.style.opacity == 0)
-                image.style.opacity = 1.0;
+                image.classList.remove('img_hide');
         });
-    }, 500);
+    }, 300);
+
+    lastSelected.classList.remove('phone_selected');
+    lastSelected.querySelector('.brand__name').classList.remove('brand_name_hide');
+    lastSelected.querySelector('.info').classList.remove('info_show');
+    lastSelected.querySelector('.models').classList.remove('models_show');
 }
 
 brands.forEach(brand => brand.addEventListener('click', selectPhone));
