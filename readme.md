@@ -1,7 +1,6 @@
 ### To Do
 
-- models
-    - select models 
+- select a model 
 - more info for selected model  
 - Nav bar
 - load data from JSON

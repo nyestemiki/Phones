@@ -1,7 +1,6 @@
 const brands = document.querySelectorAll('.brand');
 const logo = document.querySelector('.logo img');
 const images = [...document.querySelectorAll('.phones img')];
-
 let lastSelected;
 
 // Hides not-selected brands
@@ -71,7 +70,7 @@ function startPage() {
     lastSelected.querySelector('.info').classList.remove('info_show');
     lastSelected.querySelector('.models').classList.remove('models_show');
     lastSelected.querySelector('.models').style.display = "none";
-
+    lastSelected.classList.add('brand_hover');
 }
 
 brands.forEach(brand => brand.addEventListener('click', selectPhone));
