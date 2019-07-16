@@ -31,9 +31,22 @@ function selectPhone() {
         this.querySelector('.models').classList.add('models_show');
     }, 1000);
 
-    
-
     lastSelected = this;
+
+    const modelImages = [...this.querySelectorAll('img')];
+    
+    setTimeout(() => {
+        modelImages.forEach(model => {
+            model.classList.remove('img_hide');
+        });
+    }, 400);
+
+    setTimeout(() => {
+        this.querySelector('.models').style.display = "flex";
+    }, 1000);
+
+    
+    this.classList.remove('brand_hover');
 }
 
 // Shows all the brands
@@ -57,6 +70,8 @@ function startPage() {
     lastSelected.querySelector('.brand__name').classList.remove('brand_name_hide');
     lastSelected.querySelector('.info').classList.remove('info_show');
     lastSelected.querySelector('.models').classList.remove('models_show');
+    lastSelected.querySelector('.models').style.display = "none";
+
 }
 
 brands.forEach(brand => brand.addEventListener('click', selectPhone));

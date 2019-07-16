@@ -47,7 +47,7 @@ html, body {
 
 .brand_nowidth { width: 0; }
 
-.brand:hover { width: 150%;  }
+.brand_hover:hover { width: 150%;  }
 
 .img {
     vertical-align: baseline;
@@ -59,8 +59,8 @@ html, body {
 .img_hide { opacity: 0; display: none; }
 .img_show { opacity: 1; display: block; }
  
-.brand:hover .img { transform: scale(1); }
-.brand:hover .brand__name { font-size: 25px; }
+.brand_hover:hover .img { transform: scale(1); }
+.brand_hover:hover .brand__name { font-size: 25px; }
 
 .brand img {
     max-height: 75%;
@@ -120,4 +120,32 @@ html, body {
     border-radius: 10px;
     padding: 15px;
     float: right;
+}
+
+.models img {
+    width: 125px;
+    padding: 30px;
+}
+
+.models {
+    overflow: scroll;
+    width: 90%;
+    overflow-y: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
 }
