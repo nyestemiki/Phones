@@ -82,7 +82,7 @@ html, body {
 
 .phone_selected {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 20% 80%;
     grid-template-rows: 100%;
 }
 
@@ -94,9 +94,10 @@ html, body {
     display: none;
     height: 70%;
     align-items: center;
-    overflow: scroll;
+    overflow: hidden;
     width: 90%;
     overflow-y: hidden;
+    justify-content: space-between;
 }
 
 .info_show {
@@ -123,6 +124,7 @@ html, body {
     font-weight: 600;
     font-size: 35px;
     letter-spacing: 4px;
+    padding-left: 50px;
 }
 
 .button {
@@ -137,20 +139,4 @@ html, body {
     padding: 30px;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-    height: 3px;
-}
-  
-/* Track */
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-}
-  
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: red; 
-    border-radius: 10px;
-}
+.low_opacity { opacity: .5; }

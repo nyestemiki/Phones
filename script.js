@@ -26,11 +26,9 @@ function selectPhone() {
         this.querySelector('.brand__name').classList.add('brand_name_hide');
         this.querySelector('.info').classList.add('info_show');
         this.querySelector('.models').classList.add('models_show');
-    }, 1000);
+    }, 1000);  
 
-    lastSelected = this;
-
-    const modelImages = [...this.querySelectorAll('img')];
+    const modelImages = [...this.querySelectorAll('.models img')];
     
     setTimeout(() => {
         modelImages.forEach(model => {
@@ -43,6 +41,20 @@ function selectPhone() {
     }, 1000);
 
     this.classList.remove('brand_hover');
+
+    let displayList = modelImages.slice(0, 3);
+
+    let view = "";
+    let firstChild = true;
+    displayList.forEach(img => {
+        view += `<img src="${img.src}" class="${firstChild ? '' : 'low_opacity'}">`;
+        firstChild = false;
+    });
+
+    this.querySelector('.models').innerHTML = view;
+    this.querySelector('.models').firstChild.style.transform = 'scale(1.5)';
+
+    lastSelected = this;
 }
 
 // Shows all the brands
@@ -64,6 +76,10 @@ function startPage() {
     lastSelected.querySelector('.models').classList.remove('models_show');
     lastSelected.querySelector('.models').style.display = "none";
     lastSelected.classList.add('brand_hover');
+}
+
+function nextPhone(event) {
+    console.log("nem megy");
 }
 
 brands.forEach(brand => brand.addEventListener('click', selectPhone));
