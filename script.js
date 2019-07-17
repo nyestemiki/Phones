@@ -17,10 +17,8 @@ function selectPhone() {
 
     // Animating out the images
     setTimeout(() => {
-        images.forEach(image => {
-            if(image.dataset.brand !== this.dataset.brand)
-                image.classList.add('img_hide');
-        })
+        this.querySelector('.img').classList.add('img_hide');
+        images.forEach(image => { image.classList.add('img_hide'); })
     }, 300);
 
     setTimeout(() => {
@@ -44,7 +42,6 @@ function selectPhone() {
         this.querySelector('.models').style.display = "flex";
     }, 1000);
 
-    
     this.classList.remove('brand_hover');
 }
 
@@ -53,16 +50,12 @@ function startPage() {
     document.title = "Phones";
 
     // Displaying the hidden brands
-    brands.forEach(brand => {
-        brand.classList.remove('brand_nowidth');
-    });
+    brands.forEach(brand => brand.classList.remove('brand_nowidth') );
 
     // Animating in the hidden images
     setTimeout(()=> {
-        images.forEach(image => {
-            if(image.style.opacity == 0)
-                image.classList.remove('img_hide');
-        });
+        images.forEach(image => { image.classList.remove('img_hide'); });
+        lastSelected.querySelector('.img').classList.remove('img_hide');
     }, 300);
 
     lastSelected.classList.remove('phone_selected');
