@@ -54,6 +54,18 @@ function selectPhone() {
     this.querySelector('.models').innerHTML = view;
     this.querySelector('.models').firstChild.style.transform = 'scale(1.5)';
 
+    document.querySelectorAll('.models_show .low_opacity').forEach(i => i.addEventListener('click', () => { 
+        displayList = modelImages.slice(1, 4);
+        view = "";
+        firstChild = true;
+        displayList.forEach(img => {
+            view += `<img src="${img.src}" class="${firstChild ? '' : 'low_opacity'}">`;
+            firstChild = false;
+        });
+        this.querySelector('.models').innerHTML = view;
+        this.querySelector('.models').firstChild.style.transform = 'scale(1.5)';
+    }));
+
     lastSelected = this;
 }
 
