@@ -95,15 +95,18 @@ html, body {
 }
 
 .brand1 { 
-    background-color: rgb(150, 200, 250); 
+    background: rgb(0,18,255);
+    background: linear-gradient(0deg, rgba(0,18,255,0.3563218390804598) 9%, rgba(193,100,194,0.5908045977011493) 100%);    
 }
 
 .brand2 { 
-    background-color: rgb(250, 200, 150); 
+    background: rgb(155,0,255);
+    background: linear-gradient(0deg, rgba(155,0,255,0.24827586206896557) 9%, rgba(245,122,40,0.5908045977011493) 100%);
 }
 
 .brand3 { 
-    background-color: rgb(200, 150, 250)
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(67,111,255,0.5908045977011493) 0%, rgba(255,255,255,0.31264367816091954) 100%);
 }
 
 .phone_selected {
