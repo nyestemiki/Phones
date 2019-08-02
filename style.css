@@ -4,6 +4,8 @@ html, body {
     border: 0;
 }
 
+/* Nav bar */
+
 .nav {
     position: fixed;
     width: 100%;
@@ -12,73 +14,97 @@ html, body {
     z-index: 10;
 }
 
-.logo { padding: 20px; }
-.logo img{ max-width: 15px; }
+.logo img{ 
+    max-width: 15px; 
+    margin: 10px;
+    margin-left: 25px;
+}
 
 .tiles {
     display: flex;
-    justify-content: space-between;
-    margin: 10px 20px;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .tile {
     padding: 15px;
-    letter-spacing: 2px;
-    font-weight: 200;
+    letter-spacing: 3px;
 }
 
-.phones {
-    position: fixed;
+/* Main Screen */
+
+.brands {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
 }
 
 .brand {
-    will-change: width;
-    transition: width 2s;
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 90% 10%;
-    place-items: center;
+    height: 100vh;
+    flex: 1;
+    transition: flex 2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
 }
 
-.brand_nowidth { width: 0; }
+.brand:hover {
+    flex: 2;
+}
 
-.brand_hover:hover { width: 150%;  }
-
-.img {
-    vertical-align: baseline;
+.brand .img {
+    flex: 10;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transform: scale(.75);
-    will-change: transform, opacity;
-    transition: all 1s;
+    transition: all 2s;
 }
 
-.img_hide { opacity: 0; display: none; }
-.img_show { opacity: 1; display: block; }
- 
-.brand_hover:hover .img { transform: scale(1); }
-.brand_hover:hover .brand__name { font-size: 25px; }
-
-.brand img {
-    max-height: 75%;
+.brand:hover .img { 
+    transform: scale(1); 
 }
 
-.brand__name {
-    text-align: left;
-    text-transform: uppercase;
-    padding: 20px;
-    letter-spacing: 4px; 
-    font-weight: 500;
-    will-change: font-size;
-    transition: font-size 1s;
+.brand .img img {
+    height: 75%;
 }
 
-.brand1 { background-color: lightpink; }
-.brand2 { background-color: lightgoldenrodyellow; }
-.brand3 { background-color: lightsalmon; }
+.brand .title {
+    flex: 1;
+    font-size: 2em;
+    letter-spacing: 0.1em;
+    font-family: garamond;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand_nowidth { 
+    width: 0; 
+}
+
+.img_hide { 
+    opacity: 0; 
+    display: none; 
+}
+
+.img_show { 
+    opacity: 1; 
+    display: block; 
+}
+
+.brand1 { 
+    background-color: rgb(150, 200, 250); 
+}
+
+.brand2 { 
+    background-color: rgb(250, 200, 150); 
+}
+
+.brand3 { 
+    background-color: rgb(200, 150, 250)
+}
 
 .phone_selected {
     display: grid;
@@ -120,13 +146,6 @@ html, body {
     padding: 15px;
 }
 
-.model {
-    font-weight: 600;
-    font-size: 35px;
-    letter-spacing: 4px;
-    padding-left: 50px;
-}
-
 .button {
     border: 1px solid black;
     border-radius: 10px;
@@ -139,4 +158,6 @@ html, body {
     padding: 30px;
 }
 
-.low_opacity { opacity: .5; }
+.low_opacity { 
+    opacity: .5; 
+}
