@@ -146,6 +146,11 @@ html, body {
     border-radius: 4px;
 }
 
+.more_btn:hover {
+    background: rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
 .flex_column {
     display: flex;
     flex-flow: column;

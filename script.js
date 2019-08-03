@@ -1,6 +1,7 @@
 const brands = document.querySelector('.brands');
 const logo = document.querySelector('.logo img');
 let isAnimating = false;
+let brandSelected = false;
 
 // Loading the brands + eventlisteners to select them
 $.getJSON("data.json", data => {
@@ -26,11 +27,12 @@ $.getJSON("data.json", data => {
 });
 
 function selectBrand(brand) {
-    // Waiting for animation to terminate
-    if (isAnimating) {
+    // Waiting for animation to terminate | Already selected
+    if (isAnimating || brandSelected) {
         return;
     }
 
+    brandSelected = true;
     removeBrandHovers();
     hideBrandsExceptFor(brand);
     changeTitleTo(brand);
@@ -120,6 +122,8 @@ function hideBrandsExceptFor(brand) {
 // Displaying the main menu with all the brands
 function mainMenu() {
     window.title = "Phones";
+
+    brandSelected = false;
 
     // Removing other models from brand container
     let more_phones = document.querySelector('#more_phones')
