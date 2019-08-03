@@ -9,7 +9,7 @@ $.getJSON("data.json", data => {
     // Loading brands
     Object.keys(data.brands).forEach(brand => {
         brands.innerHTML += `
-            <div class="brand brand_hover brand${index}" data-brand="${index++}">
+            <div class="brand brand_hover brand${index++}" data-brand="${data.brands[brand].brandname}">
                 <div class="img">
                     <img src="${data.brands[brand].cover}">
                 </div>
@@ -36,11 +36,27 @@ function selectBrand(brand) {
     changeTitleTo(brand);
     setTimeout(() => {
         brand.classList.add('brand_selected');
-    }, 1000)
-    
-    brand.innerHTML += `
-        <div class="more_phones">More Models</div>
-    `;
+        brand.classList.add('change_order');
+        updateTitleTag(brand);
+        brand.innerHTML += `
+            <div id="more_phones">More Models</div>
+        `;
+    }, 500);
+}
+
+// Sets brand's title to the modelname and appends more button
+function updateTitleTag(brand) {
+    let title = brand.querySelector('.title span');
+    title.classList.add('title_modified');
+    let model;
+
+    $.getJSON("data.json", data => {
+        Object.keys(data.brands)
+        .filter(key => key === brand.dataset.brand)
+        .map(b => { 
+            brand.querySelector('.title span').textContent = data.brands[b].covermodel; 
+        });
+    });
 }
 
 // Changes window's title to brandname
@@ -102,8 +118,22 @@ function hideBrandsExceptFor(brand) {
 function mainMenu() {
     window.title = "Phones";
 
-    document.querySelector('.brand_selected').classList.remove('brand_selected');
+    // Removing other models from brand container
+    let more_phones = document.querySelector('#more_phones')
+    more_phones.parentNode.removeChild(more_phones);
 
+    // Set order of title to initial position
+    document.querySelector('.change_order').classList.remove('change_order');
+
+    // Unselecting the brand
+    setTimeout(() => {
+        document.querySelector('.brand_selected').classList.remove('brand_selected');
+        // Setting back the brand's title
+        let title = document.querySelector('.title_modified');
+        title.textContent = title.parentElement.parentElement.dataset.brand;
+        title.classList.remove('title_modified');
+    }, 260);
+    
     // Animation started
     isAnimating = true;
 

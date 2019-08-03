@@ -1,37 +1,39 @@
 {
     "brands": {
-        "samsung": {
+        "Samsung": {
             "brandname": "Samsung",
+            "covermodel": "S10 Plus",
             "cover": "imgs/Samsung/s10+.png",
             "modelList": {
-                "s10+": {
+                "S10 Plus": {
                     "img": "imgs/Samsung/s10+.png"
                 },
-                "a40": {
+                "A40": {
                     "img": "imgs/Samsung/a40.png"
                 },
-                "a70": {
+                "A70": {
                     "img": "imgs/Samsung/a70.png"
                 },
-                "m20": {
+                "M20": {
                     "img": "imgs/Samsung/m20.png"
                 },
-                "s9": {
+                "S9": {
                     "img": "imgs/Samsung/s9.png"
                 },
-                "s8": {
+                "S8": {
                     "img": "imgs/Samsung/s8.png"
                 },
-                "s10e": {
+                "S10e": {
                     "img": "imgs/Samsung/s10e.png"
                 }
             }
         },
-        "apple": {
+        "Apple": {
             "brandname": "Apple",
+            "covermodel": "Xs Max",
             "cover": "imgs/Apple/xsmax.png",
             "modelList": {
-                "xsMax": {
+                "Xs Max": {
                     "img": "imgs/Apple/xsmax.png"
                 },
                 "7": {
@@ -40,37 +42,38 @@
                 "8": {
                     "img": "imgs/Apple/8.png"
                 },
-                "x": {
+                "X": {
                     "img": "imgs/Apple/x.png"
                 },
-                "xr": {
+                "Xr": {
                     "img": "imgs/Apple/xr.png"
                 },
-                "xs": {
+                "Xs": {
                     "img": "imgs/Apple/xs.png"
                 }
             }
         },
-        "oneplus": {
+        "OnePlus": {
             "brandname": "OnePlus",
+            "covermodel": "6T",
             "cover": "imgs/OnePlus/6t.png",
             "modelList": {
-                "6t": {
+                "6T": {
                     "img": "imgs/OnePlus/6t.png"
                 },
                 "5": {
                     "img": "imgs/OnePlus/5.png"
                 },
-                "5t": {
+                "5T": {
                     "img": "imgs/OnePlus/5t.png"
                 },
-                "6tMaclaren": {
+                "6T Maclaren": {
                     "img": "imgs/OnePlus/6tmaclaren.png"
                 },
                 "7": {
                     "img": "imgs/OnePlus/7.png"
                 },
-                "7pro": {
+                "7 Pro": {
                     "img": "imgs/OnePlus/7pro.png"
                 }
             }

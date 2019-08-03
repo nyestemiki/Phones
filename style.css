@@ -109,12 +109,16 @@ html, body {
 }
 
 .brand_selected .title {
-    order: -1;
+    /* order: -1; */
     flex: 1;
     margin: 15px;
 }
 
-.brand_selected .more_phones {
+.change_order .title {
+    order: -1;
+}
+
+.brand_selected #more_phones {
     flex: 2;
 }
 
