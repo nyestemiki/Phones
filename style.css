@@ -40,7 +40,7 @@ html, body {
 .brand {
     height: 100vh;
     flex: 1;
-    transition: flex 2s;
+    transition: all 2s;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,6 +59,7 @@ html, body {
     justify-content: center;
     transform: scale(.75);
     transition: all 2s;
+    padding: 10px;
 }
 
 .brand:hover .img { 
@@ -78,10 +79,14 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-transform: capitalize;
 }
 
-.brand_nowidth { 
-    width: 0; 
+.brand_hide{
+    flex: 0;
+}
+.brand_hide .img, .brand_hide .title{ 
+    display: none; 
 }
 
 .img_hide { 
