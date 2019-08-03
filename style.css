@@ -47,7 +47,7 @@ html, body {
     align-content: center;
 }
 
-.brand:hover {
+.brand_hover:hover {
     flex: 2;
 }
 
@@ -64,7 +64,7 @@ html, body {
     padding: 10px;
 }
 
-.brand:hover .img { 
+.brand_hover:hover .img { 
     transform: scale(1); 
 }
 

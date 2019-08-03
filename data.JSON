@@ -1,7 +1,7 @@
 {
     "brands": {
         "samsung": {
-            "brandname": "samsung",
+            "brandname": "Samsung",
             "cover": "imgs/Samsung/s10+.png",
             "modelList": {
                 "s10+": {
@@ -28,7 +28,7 @@
             }
         },
         "apple": {
-            "brandname": "apple",
+            "brandname": "Apple",
             "cover": "imgs/Apple/xsmax.png",
             "modelList": {
                 "xsMax": {
@@ -52,7 +52,7 @@
             }
         },
         "oneplus": {
-            "brandname": "oneplus",
+            "brandname": "OnePlus",
             "cover": "imgs/OnePlus/6t.png",
             "modelList": {
                 "6t": {
