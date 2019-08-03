@@ -137,6 +137,20 @@ html, body {
     background: linear-gradient(0deg, rgba(67,111,255,0.5908045977011493) 0%, rgba(255,255,255,0.31264367816091954) 100%);
 }
 
+.more_btn {
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.flex_column {
+    display: flex;
+    flex-flow: column;
+}
+
 .phone_selected {
     display: grid;
     grid-template-columns: 20% 80%;

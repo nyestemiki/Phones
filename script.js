@@ -48,13 +48,16 @@ function selectBrand(brand) {
 function updateTitleTag(brand) {
     let title = brand.querySelector('.title span');
     title.classList.add('title_modified');
-    let model;
 
     $.getJSON("data.json", data => {
         Object.keys(data.brands)
         .filter(key => key === brand.dataset.brand)
         .map(b => { 
+            // Setting the modelname
             brand.querySelector('.title span').textContent = data.brands[b].covermodel; 
+            // Appending more button
+            brand.querySelector('.title').innerHTML += '<button class="more_btn">More</button>';
+            brand.querySelector('.title').classList.add('flex_column');
         });
     });
 }
@@ -124,6 +127,10 @@ function mainMenu() {
 
     // Set order of title to initial position
     document.querySelector('.change_order').classList.remove('change_order');
+
+    // Deleting more button
+    document.querySelector('.more_btn').parentElement.removeChild(document.querySelector('.more_btn'));
+    document.querySelector('.flex_column').classList.remove('flex_column');
 
     // Unselecting the brand
     setTimeout(() => {
