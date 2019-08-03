@@ -52,13 +52,15 @@ html, body {
 }
 
 .brand .img {
+    opacity: 1;
     flex: 10;
     height: 50%;
     display: flex;
+    will-change: opacity;
     align-items: center;
     justify-content: center;
     transform: scale(.75);
-    transition: all 2s;
+    transition: all 2s, opacity 1s;
     padding: 10px;
 }
 
@@ -71,6 +73,7 @@ html, body {
 }
 
 .brand .title {
+    opacity: 1;
     flex: 1;
     font-size: 2em;
     letter-spacing: 0.1em;
@@ -80,23 +83,20 @@ html, body {
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
+
+    transition: all 1s;
 }
 
-.brand_hide{
+.brand_hide {
     flex: 0;
 }
-.brand_hide .img, .brand_hide .title{ 
-    display: none; 
+
+.content_hide .img, .content_hide .title { 
+    display: none;  
 }
 
-.img_hide { 
+.content_fade .img, .content_fade .title { 
     opacity: 0; 
-    display: none; 
-}
-
-.img_show { 
-    opacity: 1; 
-    display: block; 
 }
 
 .brand1 { 

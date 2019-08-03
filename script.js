@@ -1,4 +1,5 @@
 const brands = document.querySelector('.brands');
+const logo = document.querySelector('.logo img');
 
 // Loading the brands + eventlisteners to select them
 $.getJSON("data.json", data => {
@@ -23,9 +24,53 @@ $.getJSON("data.json", data => {
 
 // Hides the brands except for the given 'brand'
 function hideBrandsExceptFor(brand) {
+    // Fading out content of brand container
     [...document.querySelectorAll('.brand')].map(instance => {
         if (instance !== brand) {
-            instance.classList.add('brand_hide');
+            instance.classList.add('content_fade');
         }
     });
+
+    // Hiding the content of the brand container
+    setTimeout(() => {
+        [...document.querySelectorAll('.brand')].map(instance => {
+            if (instance !== brand) {
+                instance.classList.add('content_hide');
+            }
+        });
+    }, 500);
+
+    // Hiding the brand container
+    setTimeout(() => {
+        [...document.querySelectorAll('.brand')].map(instance => {
+            if (instance !== brand) {
+                instance.classList.add('brand_hide');
+            }
+        });
+    }, 750);
 }
+
+// Displaying the main menu with all the brands
+function mainMenu() {
+    // Activating hidden brands
+    [...document.querySelectorAll('.brand')].map(instance => {
+        instance.classList.remove('brand_hide');
+    });
+
+    // Adding the content of the containers'
+    setTimeout(() => {
+        [...document.querySelectorAll('.brand')].map(instance => {
+            instance.classList.remove('content_hide');
+        });
+    }, 700);
+
+    // Fading in the containter
+    setTimeout(() => {
+        [...document.querySelectorAll('.brand')].map(instance => {
+            instance.classList.remove('content_fade');
+        });
+    }, 1000);
+}
+
+// Click on logo => back to main menu
+logo.addEventListener('click', mainMenu);
