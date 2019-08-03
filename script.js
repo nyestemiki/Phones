@@ -34,6 +34,13 @@ function selectBrand(brand) {
     removeBrandHovers();
     hideBrandsExceptFor(brand);
     changeTitleTo(brand);
+    setTimeout(() => {
+        brand.classList.add('brand_selected');
+    }, 1000)
+    
+    brand.innerHTML += `
+        <div class="more_phones">More Models</div>
+    `;
 }
 
 // Changes window's title to brandname
@@ -94,6 +101,8 @@ function hideBrandsExceptFor(brand) {
 // Displaying the main menu with all the brands
 function mainMenu() {
     window.title = "Phones";
+
+    document.querySelector('.brand_selected').classList.remove('brand_selected');
 
     // Animation started
     isAnimating = true;

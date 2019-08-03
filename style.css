@@ -99,6 +99,25 @@ html, body {
     opacity: 0; 
 }
 
+.brand_selected {
+    flex-flow: row;
+}
+
+.brand_selected .img {
+    flex: 1;
+    transform: scale(1.5);
+}
+
+.brand_selected .title {
+    order: -1;
+    flex: 1;
+    margin: 15px;
+}
+
+.brand_selected .more_phones {
+    flex: 2;
+}
+
 .brand1 { 
     background: rgb(0,18,255);
     background: linear-gradient(0deg, rgba(0,18,255,0.3563218390804598) 9%, rgba(193,100,194,0.5908045977011493) 100%);    
