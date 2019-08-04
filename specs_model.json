@@ -1,0 +1,28 @@
+{
+    "body": {
+        "size": {
+            "height": "",
+            "width": "",
+            "thickness": ""
+        },
+        "weight": ""
+    },
+    "display": {
+        "type": "",
+        "size": "",
+        "resolution": "",
+        "ratio": "",
+        "protection": ""
+    },
+    "os": "",
+    "cpu": {
+        "name": "",
+        "cores": "",
+        "coresHz": []
+    },
+    "ram": "",
+    "storage": "",
+    "camera": "",
+    "selfieCamera": "",
+    "battery": ""
+}
