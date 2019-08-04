@@ -60,22 +60,37 @@ function updateTitleTag(brand) {
             modelname.textContent = data.brands[b].covermodel; 
             // Appending more button
             brand.querySelector('.title').innerHTML += '<button class="more_btn">More</button>';
-            brand.querySelector('.more_btn').addEventListener('click', () => { moreInfoOn(modelname.textContent) });
+            brand.querySelector('.more_btn').addEventListener('click', () => { moreInfoOn(brand.dataset.brand, modelname.textContent) });
             brand.querySelector('.title').classList.add('flex_column');
         });
     });
 }
 
 // Switches display of models to display of information about the selected one
-function moreInfoOn(modelname) {
+function moreInfoOn(brand, modelname) {
     const displayArea = document.querySelector('#more_phones'); // Area for models/information
     const modelDisplay = displayArea.innerHTML; // Storing models before switching to displaying the information
     
     // Display the information
     displayArea.innerHTML = '<h1>Info</h1>';
-
-
-    // setTimeout(() => {displayArea.innerHTML = modelDisplay}, 1000);
+    
+    // All phones from data.JSON
+    $.getJSON("data.json", data => {
+        Object.keys(data.brands)
+        // Selecting the current brand
+        .filter(key => key === brand)
+        .map(currentBrand => {     
+            Object.keys(data.brands[currentBrand].modelList)
+                // Selecting the current model
+                .filter(model => model === modelname)
+                .map(currentModel => { 
+                    const modelDataObject = data.brands[currentBrand].modelList[currentModel];
+                    Object.keys(modelDataObject)
+                        // Rendering the information
+                        .map(spec => { console.log(spec, data.brands[currentBrand].modelList[currentModel][spec]) });
+                });
+        });
+    });
 }
 
 // Changes window's title to brandname
