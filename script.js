@@ -60,7 +60,9 @@ function updateTitleTag(brand) {
             modelname.textContent = data.brands[b].covermodel; 
             // Appending more button
             brand.querySelector('.title').innerHTML += '<button class="more_btn">More</button>';
-            brand.querySelector('.more_btn').addEventListener('click', () => { moreInfoOn(brand.dataset.brand, modelname.textContent) });
+            brand.querySelector('.more_btn').addEventListener('click', () => { 
+                moreInfoOn(brand.dataset.brand, modelname.textContent) 
+            });
             brand.querySelector('.title').classList.add('flex_column');
         });
     });
@@ -71,9 +73,8 @@ function moreInfoOn(brand, modelname) {
     const displayArea = document.querySelector('#more_phones'); // Area for models/information
     const modelDisplay = displayArea.innerHTML; // Storing models before switching to displaying the information
     
-    // Display the information
-    displayArea.innerHTML = '<h1>Info</h1>';
-    
+    displayArea.innerHTML = "";
+
     // All phones from data.JSON
     $.getJSON("data.json", data => {
         Object.keys(data.brands)
@@ -85,9 +86,60 @@ function moreInfoOn(brand, modelname) {
                 .filter(model => model === modelname)
                 .map(currentModel => { 
                     const modelDataObject = data.brands[currentBrand].modelList[currentModel];
-                    Object.keys(modelDataObject)
-                        // Rendering the information
-                        .map(spec => { console.log(spec, data.brands[currentBrand].modelList[currentModel][spec]) });
+                    displayArea.classList.add('info_display');
+
+                    displayArea.innerHTML += `
+                        <div class="info_box">
+                            <div>
+                                <span class="spec_type">Display</span> | 
+                                <span class="spec_word">${modelDataObject.display.size}</span> inch
+                                <span class="spec_word">${modelDataObject.display.type}</span> with a resolution of
+                                <span class="spec_word">${modelDataObject.display.resolution}</span> in a ratio of
+                                <span class="spec_word">${modelDataObject.display.ratio}</span> protected by 
+                                <span class="spec_word">${modelDataObject.display.protection}</span>
+                            </div>
+                        </div>
+                        <div class="info_box">
+                            <div>
+                                <span class="spec_type">Body</span> | 
+                                <span class="spec_word">${modelDataObject.body.size}</span> mm
+                                (<span class="spec_word">${modelDataObject.body.weight}</span>g)
+                            </div>
+                        </div>
+                        <div class="info_box">
+                            <div>
+                                <span class="spec_type">OS</span> | 
+                                <span class="spec_word">${modelDataObject.os}</span>
+                            </div>
+                        </div>
+                        <div class="info_box">
+                            <div>
+                                <span class="spec_type">Processor</span> | 
+                                <span class="spec_word">${modelDataObject.cpu.name}</span> with
+                                <span class="spec_word">${modelDataObject.cpu.cores}</span> cores
+                            </div>
+                        </div>
+                        <div class="info_box">
+                            <div>
+                                <span class="spec_type">Storage</span> | 
+                                <span class="spec_word">${modelDataObject.ram}</span> GB RAM,
+                                <span class="spec_word">${modelDataObject.storage}</span> GB internal storage
+                            </div>
+                        </div>
+                        <div class="info_box">
+                            <div>
+                                <span class="spec_type">Camera</span> | 
+                                <span class="spec_word">${modelDataObject.camera}</span> main lens and
+                                <span class="spec_word">${modelDataObject.selfie}</span> for selfies
+                            </div>
+                        </div>
+                        <div class="info_box">
+                            <div>
+                                <span class="spec_type">Battery</span> | 
+                                <span class="spec_word">${modelDataObject.battery}</span> mAh
+                            </div>
+                        </div>
+                    `;
                 });
         });
     });

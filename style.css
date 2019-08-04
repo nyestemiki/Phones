@@ -158,3 +158,34 @@ html, body {
     display: flex;
     flex-flow: column;
 }
+
+.info_display {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    align-content: center;
+    justify-content: space-evenly;
+    font-size: 1.2vw;
+}
+
+.info_box {
+    border: 6px solid rgba(0, 0, 0, 0.35);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 8px;
+    color: rgba(5, 5, 177, 0.596);
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.spec_type {
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.spec_word {
+    background: rgba(0, 0, 0, .15);
+    border-radius: 5px;
+}

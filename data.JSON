@@ -8,11 +8,7 @@
                 "S10 Plus": {
                     "img": "imgs/Samsung/s10+.png",
                     "body": {
-                        "size": {
-                            "height": "157.6",
-                            "width": "74.1",
-                            "thickness": "7.8"
-                        },
+                        "size": "157.6 x 74.1 x 7.8",
                         "weight": "175"
                     },
                     "display": {
@@ -31,7 +27,7 @@
                     "ram": "12",
                     "storage": "1000",
                     "camera": "12, 12, 16 MP",
-                    "selfieCamera": "10, 8 MP",
+                    "selfie": "10, 8 MP",
                     "battery": "4100"
                 },
                 "A40": {
@@ -91,7 +87,7 @@
                     "ram": "2",
                     "storage": "256",
                     "camera": "12 MP",
-                    "selfieCamera": "7 MP",
+                    "selfie": "7 MP",
                     "battery": "1821"
                 },
                 "X": {
@@ -151,7 +147,7 @@
                     "ram": "12",
                     "storage": "256",
                     "camera": "48, 8, 16 MP",
-                    "selfieCamera": "16 MP",
+                    "selfie": "16 MP",
                     "battery": "4000"
                 }
             }
