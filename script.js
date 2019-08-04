@@ -56,12 +56,26 @@ function updateTitleTag(brand) {
         .filter(key => key === brand.dataset.brand)
         .map(b => { 
             // Setting the modelname
-            brand.querySelector('.title span').textContent = data.brands[b].covermodel; 
+            const modelname = brand.querySelector('.title span');
+            modelname.textContent = data.brands[b].covermodel; 
             // Appending more button
             brand.querySelector('.title').innerHTML += '<button class="more_btn">More</button>';
+            brand.querySelector('.more_btn').addEventListener('click', () => { moreInfoOn(modelname.textContent) });
             brand.querySelector('.title').classList.add('flex_column');
         });
     });
+}
+
+// Switches display of models to display of information about the selected one
+function moreInfoOn(modelname) {
+    const displayArea = document.querySelector('#more_phones'); // Area for models/information
+    const modelDisplay = displayArea.innerHTML; // Storing models before switching to displaying the information
+    
+    // Display the information
+    displayArea.innerHTML = '<h1>Info</h1>';
+
+
+    // setTimeout(() => {displayArea.innerHTML = modelDisplay}, 1000);
 }
 
 // Changes window's title to brandname
