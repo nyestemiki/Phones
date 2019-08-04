@@ -121,12 +121,17 @@ function hideBrandsExceptFor(brand) {
 
 // Displaying the main menu with all the brands
 function mainMenu() {
-    window.title = "Phones";
+    // Home button is disabled when in main menu
+    if (document.title == "Phones") {
+        return;
+    }
+
+    document.title = "Phones";
 
     brandSelected = false;
 
     // Removing other models from brand container
-    let more_phones = document.querySelector('#more_phones')
+    let more_phones = document.querySelector('#more_phones');
     more_phones.parentNode.removeChild(more_phones);
 
     // Set order of title to initial position

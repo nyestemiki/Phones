@@ -14,10 +14,15 @@ html, body {
     z-index: 10;
 }
 
-.logo img{ 
+.logo img { 
     max-width: 15px; 
     margin: 10px;
     margin-left: 25px;
+}
+
+.logo img:hover {
+    background: rgba(255, 255, 255, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
 }
 
 .tiles {
@@ -75,15 +80,14 @@ html, body {
 .brand .title {
     opacity: 1;
     flex: 1;
-    font-size: 2em;
-    letter-spacing: 0.1em;
-    font-family: garamond;
-    
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    font-weight: 100;
+    font-family: sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
-
     transition: all 1s;
 }
 
@@ -109,17 +113,16 @@ html, body {
 }
 
 .brand_selected .title {
-    /* order: -1; */
     flex: 1;
     margin: 15px;
 }
 
-.change_order .title {
-    order: -1;
-}
-
 .brand_selected #more_phones {
     flex: 2;
+}
+
+.change_order .title {
+    order: -1;
 }
 
 .brand1 { 
@@ -154,60 +157,4 @@ html, body {
 .flex_column {
     display: flex;
     flex-flow: column;
-}
-
-.phone_selected {
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 100%;
-}
-
-.info {
-    display: none;
-}
-
-.models {
-    display: none;
-    height: 70%;
-    align-items: center;
-    overflow: hidden;
-    width: 90%;
-    overflow-y: hidden;
-    justify-content: space-between;
-}
-
-.info_show {
-    display: block;
-}
-
-.models_show {
-    display: block;
-}
-
-.brand_name_hide {
-    display: none;
-}
-
-.info {
-    padding: 30px;
-}
-
-.info > * {
-    padding: 15px;
-}
-
-.button {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 15px;
-    float: right;
-}
-
-.models img {
-    width: 125px;
-    padding: 30px;
-}
-
-.low_opacity { 
-    opacity: .5; 
 }
