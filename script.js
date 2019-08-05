@@ -61,7 +61,7 @@ function updateTitleTag(brand) {
             const modelname = brand.querySelector('.title span');
             modelname.textContent = data.brands[b].covermodel; 
             // Appending more button
-            brand.querySelector('.title').innerHTML += '<button class="more_btn">More</button>';
+            brand.querySelector('.title').innerHTML += '<div class="more_btn">More</div>';
             brand.querySelector('.more_btn').addEventListener('click', () => { 
                 handelMoreInfoButton(brand.dataset.brand, modelname.textContent) 
             });
@@ -74,8 +74,10 @@ function updateTitleTag(brand) {
 function handelMoreInfoButton(brand, modelname) {
     if (isExpanded) {
         document.querySelector('#more_phones').innerHTML = modelDisplayGlobal || "More Models";
+        document.querySelector('.more_btn').textContent = "More";
     } else {
         modelDisplayGlobal = moreInfoOn(brand, modelname);
+        document.querySelector('.more_btn').textContent = "Less";
     }
 
     isExpanded = !isExpanded;
@@ -101,7 +103,10 @@ function moreInfoOn(brand, modelname) {
                 .map(currentModel => { 
                     const modelDataObject = data.brands[currentBrand].modelList[currentModel];
                     displayArea.classList.add('info_display');
-
+                    if (!modelDataObject.body) {
+                        displayArea.textContent = "No info";
+                        return;
+                    }
                     displayArea.innerHTML += `
                         <div class="info_box">
                             <div>
