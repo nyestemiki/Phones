@@ -2,6 +2,8 @@ const brands = document.querySelector('.brands');
 const logo = document.querySelector('.logo img');
 let isAnimating = false;
 let brandSelected = false;
+let isExpanded = false;
+let modelDisplayGlobal;
 
 // Loading the brands + eventlisteners to select them
 $.getJSON("data.json", data => {
@@ -61,18 +63,30 @@ function updateTitleTag(brand) {
             // Appending more button
             brand.querySelector('.title').innerHTML += '<button class="more_btn">More</button>';
             brand.querySelector('.more_btn').addEventListener('click', () => { 
-                moreInfoOn(brand.dataset.brand, modelname.textContent) 
+                handelMoreInfoButton(brand.dataset.brand, modelname.textContent) 
             });
             brand.querySelector('.title').classList.add('flex_column');
         });
     });
 }
 
+// Toggels information/models
+function handelMoreInfoButton(brand, modelname) {
+    if (isExpanded) {
+        document.querySelector('#more_phones').innerHTML = modelDisplayGlobal || "More Models";
+    } else {
+        modelDisplayGlobal = moreInfoOn(brand, modelname);
+    }
+
+    isExpanded = !isExpanded;
+}
+
 // Switches display of models to display of information about the selected one
+// Returns innerHTML of the model container
 function moreInfoOn(brand, modelname) {
     const displayArea = document.querySelector('#more_phones'); // Area for models/information
     const modelDisplay = displayArea.innerHTML; // Storing models before switching to displaying the information
-    
+
     displayArea.innerHTML = "";
 
     // All phones from data.JSON
@@ -143,6 +157,8 @@ function moreInfoOn(brand, modelname) {
                 });
         });
     });
+
+    return modelDisplay;
 }
 
 // Changes window's title to brandname
