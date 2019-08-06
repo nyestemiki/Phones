@@ -219,6 +219,11 @@ html, body {
     overflow: hidden;
     width: 50vw;
     height: 50vh;
+    opacity: .5;
+}
+
+.models:hover {
+    opacity: 1;
 }
 
 @keyframes models {

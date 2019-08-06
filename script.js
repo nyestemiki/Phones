@@ -62,7 +62,14 @@ function moreModelsTo(brand) {
                 `;
             });
         brand.querySelector('.models').innerHTML += html || '<div class="models">No other models available</div>';
+        brand.querySelectorAll('.models .model').forEach(model => {
+            model.addEventListener('click', nextModel);
+        })
     });
+}
+
+function nextModel() {
+    alert();
 }
 
 // Sets brand's title to the modelname and appends more button
