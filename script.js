@@ -44,14 +44,18 @@ function selectBrand(brand) {
         brand.classList.add('brand_selected');
         brand.classList.add('change_order');
         setTimeout(() => {
+            initializeModelsDisplayArea();
             moreModelsTo(brand);
             updateTitleTag(brand);
         }, 2000);
     }, 500);
 }
 
+function initializeModelsDisplayArea() {
+    document.querySelector('.brand_selected').innerHTML += "<div class='models' id='more_phones'></div>";
+}
+
 function moreModelsTo(brand) {
-    brand.innerHTML += "<div class='models' id='more_phones'></div>";
     let html = "";
     $.getJSON("data.json", data => {
         const modellist = data.brands[brand.dataset.brand].modelList;
@@ -63,15 +67,15 @@ function moreModelsTo(brand) {
                     </div>
                 `;
             });
-        brand.querySelector('.models').innerHTML += html || '<div class="models">No other models available</div>';
-        brand.querySelectorAll('.models .model').forEach(model => {
-            model.addEventListener('click', nextModel);
-        });
+        brand.querySelector('.models').innerHTML = html || '<div class="models">No other models available</div>';
+        brand.querySelector('.models').addEventListener('click', nextModel);
     });
 }
 
 function nextModel() {
-    alert();
+    // Set the modelname
+    // Set the current model 
+    // Scroll in other model's list
 }
 
 // Sets brand's title to the modelname and appends more button
@@ -88,28 +92,30 @@ function updateTitleTag(brand) {
             modelname.textContent = data.brands[b].covermodel; 
             // Appending more button
             brand.querySelector('.title').innerHTML += '<div class="more_btn">More</div>';
-            brand.querySelector('.more_btn').addEventListener('click', () => { 
-                handelMoreInfoButton(brand.dataset.brand, modelname.textContent);
-            });
+            brand.querySelector('.more_btn').addEventListener('click', handelMoreInfoButton);
             brand.querySelector('.title').classList.add('flex_column');
         });
     });
 }
 
-function setEventListeners() {
+// Resets the event listeners
+function resetEventListeners() {
     document.querySelector('.brand_selected .models').addEventListener('click', nextModel);
 }
 
 // Toggels information/models
-function handelMoreInfoButton(brand, modelname) {
+function handelMoreInfoButton() {
+    let brand = document.querySelector('.brand_selected');
+    let modelname = document.querySelector('.brand_selected .brand_name').textContent;
+
     if (isExpanded) {
-        document.querySelector('#more_phones').innerHTML = modelDisplayGlobal || "More Models";
+        document.querySelector('#more_phones').innerHTML = moreModelsTo(brand) || "More Models";
         document.querySelector('.more_btn').textContent = "More";
         document.querySelector('#more_phones').classList.add('models');
         document.querySelector('#more_phones').classList.remove('info_display');
-        setEventListeners();
+        resetEventListeners();
     } else {
-        modelDisplayGlobal = moreInfoOn(brand, modelname);
+        modelDisplayGlobal = moreInfoOn(brand.dataset.brand, modelname);
         document.querySelector('.more_btn').textContent = "Less";
         document.querySelector('#more_phones').classList.add('info_display');
         document.querySelector('#more_phones').classList.remove('models');
