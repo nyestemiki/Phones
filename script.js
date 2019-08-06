@@ -1,8 +1,10 @@
 const brands = document.querySelector('.brands');
 const logo = document.querySelector('.logo img');
+
 let isAnimating = false;
-let brandSelected = false;
+let isBrandSelected = false;
 let isExpanded = false;
+
 let modelDisplayGlobal;
 
 // Loading the brands + eventlisteners to select them
@@ -30,11 +32,11 @@ $.getJSON("data.json", data => {
 
 function selectBrand(brand) {
     // Waiting for animation to terminate | Already selected
-    if (isAnimating || brandSelected) {
+    if (isAnimating || isBrandSelected) {
         return;
     }
 
-    brandSelected = true;
+    isBrandSelected = true;
     removeBrandHovers();
     hideBrandsExceptFor(brand);
     changeTitleTo(brand);
@@ -64,7 +66,7 @@ function moreModelsTo(brand) {
         brand.querySelector('.models').innerHTML += html || '<div class="models">No other models available</div>';
         brand.querySelectorAll('.models .model').forEach(model => {
             model.addEventListener('click', nextModel);
-        })
+        });
     });
 }
 
@@ -94,6 +96,10 @@ function updateTitleTag(brand) {
     });
 }
 
+function setEventListeners() {
+    document.querySelector('.brand_selected .models').addEventListener('click', nextModel);
+}
+
 // Toggels information/models
 function handelMoreInfoButton(brand, modelname) {
     if (isExpanded) {
@@ -101,6 +107,7 @@ function handelMoreInfoButton(brand, modelname) {
         document.querySelector('.more_btn').textContent = "More";
         document.querySelector('#more_phones').classList.add('models');
         document.querySelector('#more_phones').classList.remove('info_display');
+        setEventListeners();
     } else {
         modelDisplayGlobal = moreInfoOn(brand, modelname);
         document.querySelector('.more_btn').textContent = "Less";
@@ -258,7 +265,7 @@ function mainMenu() {
 
     document.title = "Phones";
 
-    brandSelected = false;
+    isBrandSelected = false;
 
     // Removing other models from brand container
     let more_phones = document.querySelector('#more_phones');
