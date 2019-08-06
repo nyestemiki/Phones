@@ -16,7 +16,7 @@ $.getJSON("data.json", data => {
     Object.keys(data.brands).forEach(brand => {
         brands.innerHTML += `
             <div class="brand brand_hover brand${index++}" data-brand="${data.brands[brand].brandname}">
-                <div class="img">
+                <div class="img" data-model=${data.brands[brand].covermodel}>
                     <img src="${data.brands[brand].cover}">
                 </div>
                 <div class="title">
@@ -90,10 +90,12 @@ function nextModel() {
     // Scroll in other model's list (always show models following the displayed model)
 
     currentModelGlobal = document.querySelectorAll('.brand_selected .model')[0]; 
-    console.log(currentModelGlobal);
     let brand = document.querySelector('.brand_selected').dataset.brand;
+    document.querySelector('.brand_selected .img').dataset.model = currentModelGlobal.dataset.model;
     $.getJSON("data.json", data => {
         document.querySelector('.brand_selected .img img').src = data.brands[brand].modelList[currentModelGlobal.dataset.model].img;
+        document.querySelector('.brand_selected .img').dataset.model = currentModelGlobal.dataset.model;
+        document.querySelector('.brand_selected .title .brand_name').textContent = currentModelGlobal.dataset.model;
     });
     
 }
@@ -109,7 +111,7 @@ function updateTitleTag(brand) {
         .map(b => { 
             // Setting the modelname
             const modelname = brand.querySelector('.title span');
-            modelname.textContent = data.brands[b].covermodel; 
+            modelname.textContent = document.querySelector('.brand_selected .img').dataset.model; 
             // Appending more button
             brand.querySelector('.title').innerHTML += '<div class="more_btn">More</div>';
             brand.querySelector('.more_btn').addEventListener('click', handelMoreInfoButton);
