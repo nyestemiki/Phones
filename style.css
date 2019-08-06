@@ -216,10 +216,14 @@ html, body {
 .models {
     animation: models .5s;
     display: flex;
-    overflow: hidden;
+    overflow: scroll;
     width: 50vw;
     height: 50vh;
     opacity: .5;
+}
+
+.models::-webkit-scrollbar { 
+    display: none;  
 }
 
 .models:hover {
@@ -243,6 +247,8 @@ html, body {
 
 .model img {
     height: 75%;
+    pointer-events: none;
+    user-select: none;
 }
 
 .title_modified {

@@ -68,14 +68,24 @@ function moreModelsTo(brand) {
                 `;
             });
         brand.querySelector('.models').innerHTML = html || '<div class="models">No other models available</div>';
-        brand.querySelector('.models').addEventListener('click', nextModel);
+        // Next model listeners
+        brand.querySelector('.models').addEventListener('mousedown', nextModel);
+        brand.querySelector('.models').addEventListener('mousewheel', nextModel);
+        // Disabling default scrolling
+        brand.querySelector('.models').addEventListener('scroll', () => {
+            brand.querySelector('.models').scrollTo(0, 0);
+        });
     });
 }
 
 function nextModel() {
-    // Set the modelname
+    // Set's current model to next one and calls updateBrandName and updateModelList
+
     // Set the current model 
-    // Scroll in other model's list
+    // Set the modelname (.brand_name textContent) => more button works properly
+    // Scroll in other model's list (always show models following the displayed model)
+
+    console.log('next model');
 }
 
 // Sets brand's title to the modelname and appends more button
