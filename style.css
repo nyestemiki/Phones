@@ -107,6 +107,19 @@ html, body {
     flex-flow: row;
 }
 
+.brand_selected > .img, .brand_selected > .title {
+    animation: brandselected 1.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes brandselected {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
 .brand_selected .img {
     flex: 1;
     transform: scale(1.5);
@@ -167,6 +180,15 @@ html, body {
     align-content: center;
     justify-content: space-evenly;
     font-size: 1.2vw;
+    animation: infodisplay .3s;
+}
+
+@keyframes infodisplay {
+    from {
+        transform: translateY(100%);
+    } to {
+        transform: translateY(0%);
+    }
 }
 
 .info_box {
@@ -192,18 +214,40 @@ html, body {
 }
 
 .models {
+    animation: models .5s;
     display: flex;
-    flex-basis: 10px;
+    overflow: hidden;
+    width: 50vw;
     height: 50vh;
+}
+
+@keyframes models {
+    from {
+        transform: translateX(100%);
+    } to {
+        transform: translateX(0%);
+    }
 }
 
 .model {
     flex: 1;
     height: 50vh;
     padding: 10px;
-    margin: 10px;
+    margin: 30px;
 }
 
 .model img {
     height: 75%;
+}
+
+.title_modified {
+    animation: titlemodified 1s;
+}
+
+@keyframes titlemodified {
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0%);
+    }
 }
