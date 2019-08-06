@@ -6,6 +6,7 @@ let isBrandSelected = false;
 let isExpanded = false;
 
 let modelDisplayGlobal;
+let currentModelGlobal;
 
 // Loading the brands + eventlisteners to select them
 $.getJSON("data.json", data => {
@@ -57,12 +58,15 @@ function initializeModelsDisplayArea() {
 
 function moreModelsTo(brand) {
     let html = "";
+
     $.getJSON("data.json", data => {
         const modellist = data.brands[brand.dataset.brand].modelList;
+        let currentModelLocal = currentModelGlobal || data.brands[brand.dataset.brand].covermodel;
         Object.keys(modellist)
+            .filter(a => a !== currentModelLocal)
             .map(key => {
                 html += `
-                    <div class="model">
+                    <div class="model" data-model="${key}">
                         <img src="${modellist[key].img}">
                     </div>
                 `;
@@ -85,7 +89,13 @@ function nextModel() {
     // Set the modelname (.brand_name textContent) => more button works properly
     // Scroll in other model's list (always show models following the displayed model)
 
-    console.log('next model');
+    currentModelGlobal = document.querySelectorAll('.brand_selected .model')[0]; 
+    console.log(currentModelGlobal);
+    let brand = document.querySelector('.brand_selected').dataset.brand;
+    $.getJSON("data.json", data => {
+        document.querySelector('.brand_selected .img img').src = data.brands[brand].modelList[currentModelGlobal.dataset.model].img;
+    });
+    
 }
 
 // Sets brand's title to the modelname and appends more button

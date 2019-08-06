@@ -73,6 +73,10 @@ html, body {
     transform: scale(1); 
 }
 
+.brand_hover:hover .img img {
+    filter: drop-shadow(0 0 50px rgba(255, 255, 255, .65));
+}
+
 .brand .img img {
     height: 75%;
 }
