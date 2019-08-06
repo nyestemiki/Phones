@@ -42,10 +42,25 @@ function selectBrand(brand) {
         brand.classList.add('brand_selected');
         brand.classList.add('change_order');
         updateTitleTag(brand);
-        brand.innerHTML += `
-            <div id="more_phones">More Models</div>
-        `;
+        moreModelsTo(brand);
     }, 500);
+}
+
+function moreModelsTo(brand) {
+    let html = "<div class='models' id='more_phones'>";
+    $.getJSON("data.json", data => {
+        const modellist = data.brands[brand.dataset.brand].modelList;
+        Object.keys(modellist)
+            .map(key => {
+                html += `
+                    <div class="model">
+                        <img src="${modellist[key].img}">
+                    </div>
+                `;
+            });
+        html += '</div>';
+        brand.innerHTML += html || '<div class="models">No other models available</div>';
+    });
 }
 
 // Sets brand's title to the modelname and appends more button
