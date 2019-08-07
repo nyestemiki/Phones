@@ -1,7 +1,8 @@
 ### To Do
 
-- Nav bar
-- (hard coding => basic manager tab) 
+- Nav bar fill
+- hard coding => manager tab
 - automate specs -> category/string
+- (react?)
 
 - refactoring, clean-up, comments
