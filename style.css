@@ -157,7 +157,7 @@ html, body {
     background: linear-gradient(0deg, rgba(67,111,255,0.5908045977011493) 0%, rgba(255,255,255,0.31264367816091954) 100%);
 }
 
-.more_btn {
+.more_btn, .btn {
     padding: 10px;
     margin: 10px;
     background: none;
@@ -167,9 +167,14 @@ html, body {
     cursor: pointer;
 }
 
-.more_btn:hover {
+.more_btn:hover, .btn:hover {
     background: rgba(0, 0, 0, 0.3);
     text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.btn {
+    align-self: center;
+    justify-self: center;
 }
 
 .flex_column {
@@ -224,6 +229,7 @@ html, body {
     width: 50vw;
     height: 50vh;
     opacity: .5;
+    z-index: 5;
 }
 
 .models::-webkit-scrollbar { 

@@ -5,6 +5,8 @@ let isAnimating = false;
 let isBrandSelected = false;
 let isExpanded = false;
 
+let canScroll = true;
+
 let modelDisplayGlobal;
 let currentModelGlobal;
 
@@ -58,28 +60,65 @@ function initializeModelsDisplayArea() {
 
 function moreModelsTo(brand) {
     let html = "";
+    let modelBeforeCurrent = true;
 
     $.getJSON("data.json", data => {
         const modellist = data.brands[brand.dataset.brand].modelList;
-        let currentModelLocal = currentModelGlobal || data.brands[brand.dataset.brand].covermodel;
         Object.keys(modellist)
-            .filter(a => a !== currentModelLocal)
-            .map(key => {
-                html += `
-                    <div class="model" data-model="${key}">
-                        <img src="${modellist[key].img}">
-                    </div>
-                `;
+            .map(key => {       
+                if (!modelBeforeCurrent) {
+                    html += `
+                        <div class="model" data-model="${key}">
+                            <img src="${modellist[key].img}">
+                        </div>
+                    `;
+                }
+                if (key === brand.querySelector('.img').dataset.model) {
+                    modelBeforeCurrent = false;
+                }
+                console.log((key === brand.querySelector('.img').dataset.model));
             });
+        html += '<div class="btn backToBeginning">Back to beginning</div>';
         brand.querySelector('.models').innerHTML = html || '<div class="models">No other models available</div>';
         // Next model listeners
         brand.querySelector('.models').addEventListener('mousedown', nextModel);
-        brand.querySelector('.models').addEventListener('mousewheel', nextModel);
+        
+        // Scroll settings
+    /*
+        // Preventing overly fast scrolling 
+        if (!canScroll) {
+            setTimeout(() => {
+                canScroll = true
+            }, 600);
+        }
+        brand.querySelector('.models').addEventListener('mousewheel', () => {
+            if (canScroll) {
+                canScroll = false;
+                nextModel();
+            }
+        });
+        
         // Disabling default scrolling
         brand.querySelector('.models').addEventListener('scroll', () => {
             brand.querySelector('.models').scrollTo(0, 0);
         });
+    */
+
+        brand.querySelector('.backToBeginning').addEventListener('click', backToBeginning);
     });
+}
+
+function backToBeginning() {
+    $.getJSON("data.json", data => {
+        Object.keys(data.brands)
+            .filter(key => key === document.querySelector('.brand_selected').dataset.brand)
+            .map( b => {
+                document.querySelector('.brand_selected .img').dataset.model = data.brands[b].covermodel;
+                document.querySelector('.brand_selected .img img').src = data.brands[b].cover;
+                document.querySelector('.brand_selected .title .brand_name').textContent = data.brands[b].covermodel;
+            });    
+    });
+    document.querySelector('#more_phones').innerHTML = moreModelsTo(document.querySelector('.brand_selected'));
 }
 
 function nextModel() {
@@ -90,6 +129,10 @@ function nextModel() {
     // Scroll in other model's list (always show models following the displayed model)
 
     currentModelGlobal = document.querySelectorAll('.brand_selected .model')[0]; 
+    // No more models to display
+    if (!currentModelGlobal) {
+        return;
+    }
     let brand = document.querySelector('.brand_selected').dataset.brand;
     document.querySelector('.brand_selected .img').dataset.model = currentModelGlobal.dataset.model;
     $.getJSON("data.json", data => {
@@ -97,14 +140,13 @@ function nextModel() {
         document.querySelector('.brand_selected .img').dataset.model = currentModelGlobal.dataset.model;
         document.querySelector('.brand_selected .title .brand_name').textContent = currentModelGlobal.dataset.model;
     });
-    
+    moreModelsTo(document.querySelector('.brand_selected'));
 }
 
 // Sets brand's title to the modelname and appends more button
 function updateTitleTag(brand) {
     let title = brand.querySelector('.title span');
     title.classList.add('title_modified');
-
     $.getJSON("data.json", data => {
         Object.keys(data.brands)
         .filter(key => key === brand.dataset.brand)

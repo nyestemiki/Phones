@@ -2,10 +2,10 @@
     "brands": {
         "Samsung": {
             "brandname": "Samsung",
-            "covermodel": "S10 Plus",
+            "covermodel": "S10Plus",
             "cover": "imgs/Samsung/s10+.png",
             "modelList": {
-                "S10 Plus": {
+                "S10Plus": {
                     "img": "imgs/Samsung/s10+.png",
                     "body": {
                         "size": "157.6 x 74.1 x 7.8",
@@ -52,16 +52,16 @@
         },
         "Apple": {
             "brandname": "Apple",
-            "covermodel": "Xs Max",
+            "covermodel": "XsMax",
             "cover": "imgs/Apple/xsmax.png",
             "modelList": {
-                "Xs Max": {
+                "XsMax": {
                     "img": "imgs/Apple/xsmax.png"
                 },
-                "7": {
+                " 7": {
                     "img": "imgs/Apple/7.png"
                 },
-                "8": {
+                " 8": {
                     "img": "imgs/Apple/8.png",
                     "body": {
                         "size": {
@@ -103,25 +103,25 @@
         },
         "OnePlus": {
             "brandname": "OnePlus",
-            "covermodel": "6T",
+            "covermodel": "OP6T",
             "cover": "imgs/OnePlus/6t.png",
             "modelList": {
-                "6T": {
+                "OP6T": {
                     "img": "imgs/OnePlus/6t.png"
                 },
-                "5": {
+                "OP5": {
                     "img": "imgs/OnePlus/5.png"
                 },
-                "5T": {
+                "OP5T": {
                     "img": "imgs/OnePlus/5t.png"
                 },
-                "6T Maclaren": {
+                "OP6TMaclaren": {
                     "img": "imgs/OnePlus/6tmaclaren.png"
                 },
-                "7": {
+                "OP7": {
                     "img": "imgs/OnePlus/7.png"
                 },
-                "7 Pro": {
+                "OP7Pro": {
                     "img": "imgs/OnePlus/7pro.png",
                     "body": {
                         "size": {
