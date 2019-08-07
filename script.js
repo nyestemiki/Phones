@@ -48,6 +48,7 @@ function selectBrand(brand) {
         brand.classList.add('change_order');
         setTimeout(() => {
             initializeModelsDisplayArea();
+            // initializeNextIndicator();
             moreModelsTo(brand);
             updateTitleTag(brand);
         }, 2000);
@@ -55,8 +56,18 @@ function selectBrand(brand) {
 }
 
 function initializeModelsDisplayArea() {
-    document.querySelector('.brand_selected').innerHTML += "<div class='models' id='more_phones'></div>";
+    document.querySelector('.brand_selected').innerHTML += "<div class='models models_hover' id='more_phones'></div>";
 }
+
+// function initializeNextIndicator() {
+//     document.querySelector('.brand_selected').innerHTML += "<div class='next'>></div>";
+// }
+
+// function addArrowEffect() {
+//     setTimeout(() => {
+//         document.querySelector('.brand_selected .models').innerHTML += `<div class='arrow_effect'></div>`;
+//     }, 300);
+// }
 
 function moreModelsTo(brand) {
     let html = "";
@@ -76,8 +87,10 @@ function moreModelsTo(brand) {
                 if (key === brand.querySelector('.img').dataset.model) {
                     modelBeforeCurrent = false;
                 }
-                console.log((key === brand.querySelector('.img').dataset.model));
             });
+        // if (html) {
+        //     addArrowEffect();
+        // }
         html += '<div class="btn backToBeginning">Back to beginning</div>';
         brand.querySelector('.models').innerHTML = html || '<div class="models">No other models available</div>';
         // Next model listeners
@@ -119,20 +132,23 @@ function backToBeginning() {
             });    
     });
     document.querySelector('#more_phones').innerHTML = moreModelsTo(document.querySelector('.brand_selected'));
+    // Animate new selected phone
+    document.querySelector('.brand_selected .img img').classList.add('next_model_selected');
+    setTimeout(() => {
+        document.querySelector('.brand_selected .img img').classList.remove('next_model_selected');
+    }, 2000);
 }
 
 function nextModel() {
-    // Set's current model to next one and calls updateBrandName and updateModelList
-
-    // Set the current model 
-    // Set the modelname (.brand_name textContent) => more button works properly
-    // Scroll in other model's list (always show models following the displayed model)
-
+    
     currentModelGlobal = document.querySelectorAll('.brand_selected .model')[0]; 
     // No more models to display
     if (!currentModelGlobal) {
         return;
     }
+    // Animate virtual scroll
+    document.querySelector('.brand_selected .models').classList.toggle('next_model');
+
     let brand = document.querySelector('.brand_selected').dataset.brand;
     document.querySelector('.brand_selected .img').dataset.model = currentModelGlobal.dataset.model;
     $.getJSON("data.json", data => {
@@ -141,6 +157,12 @@ function nextModel() {
         document.querySelector('.brand_selected .title .brand_name').textContent = currentModelGlobal.dataset.model;
     });
     moreModelsTo(document.querySelector('.brand_selected'));
+
+    // Animate new selected phone
+    document.querySelector('.brand_selected .img img').classList.add('next_model_selected');
+    setTimeout(() => {
+        document.querySelector('.brand_selected .img img').classList.remove('next_model_selected');
+    }, 1000);
 }
 
 // Sets brand's title to the modelname and appends more button
@@ -183,6 +205,8 @@ function handelMoreInfoButton() {
         document.querySelector('.more_btn').textContent = "Less";
         document.querySelector('#more_phones').classList.add('info_display');
         document.querySelector('#more_phones').classList.remove('models');
+        document.querySelector('#more_phones').classList.remove('models_hover');
+        document.querySelector('#more_phones').classList.remove('next_model');
     }
 
     isExpanded = !isExpanded;
@@ -209,7 +233,7 @@ function moreInfoOn(brand, modelname) {
                     const modelDataObject = data.brands[currentBrand].modelList[currentModel];
                     displayArea.classList.add('info_display');
                     if (!modelDataObject.body) {
-                        displayArea.textContent = "No info";
+                        displayArea.innerHTML = "<div class='info_box'>No info</div>";
                         return;
                     }
                     displayArea.innerHTML += `

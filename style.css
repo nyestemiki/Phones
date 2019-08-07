@@ -225,11 +225,13 @@ html, body {
 .models {
     animation: models .5s;
     display: flex;
-    overflow: scroll;
+    /* overflow: scroll; */
+    overflow: hidden;
     width: 50vw;
     height: 50vh;
     opacity: .5;
     z-index: 5;
+    transition: opacity .7s linear;
 }
 
 .models::-webkit-scrollbar { 
@@ -238,6 +240,7 @@ html, body {
 
 .models:hover {
     opacity: 1;
+    transition: opacity .3s linear;
 }
 
 @keyframes models {
@@ -245,6 +248,14 @@ html, body {
         transform: translateX(100%);
     } to {
         transform: translateX(0%);
+    }
+}
+
+@keyframes modelshover {
+    from {
+        opacity: 0.5;
+    } to {
+        opacity: 1;
     }
 }
 
@@ -272,3 +283,70 @@ html, body {
         transform: translateX(0%);
     }
 }
+
+.next_model {
+    animation: nextmodel 1s;
+}
+
+@keyframes nextmodel {
+    from {
+        transform: translateX(100%);
+    } to {
+        transform: translateX(0%);
+    }
+}
+
+.next_model_selected {
+    animation: nextmodelselected 1s;
+    animation-fill-mode: initial;
+}
+
+@keyframes nextmodelselected {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+/* 
+.arrow_effect {
+    width: 30vw;
+    height: 25vh;
+    position: absolute;
+    top: 40vh;
+    animation: arroweffect 3s infinite;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0.3;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
+
+@keyframes arroweffect {
+    from {
+
+    } to {
+        transform: translateX(200%);
+        opacity: 1;
+    }
+} */
+/* 
+.next {
+    position: fixed;
+    height: 100vh;
+    width: 30vw;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, .75) 100%); 
+    right: 0;
+    font-size: 100px;
+    color: white;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 1);
+    opacity: 0;
+    z-index: 1;
+}
+
+.models:hover .next {
+    opacity: 1;
+} */
