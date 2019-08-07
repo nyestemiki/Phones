@@ -28,12 +28,12 @@ html, body {
 .tiles {
     display: flex;
     justify-content: space-around;
-    align-items: center;
 }
 
 .tile {
     padding: 15px;
     letter-spacing: 3px;
+    cursor: pointer;
 }
 
 /* Main Screen */
@@ -350,3 +350,25 @@ html, body {
 .models:hover .next {
     opacity: 1;
 } */
+
+.tile {
+    display: flex;
+    flex-flow: column;
+}
+
+.tile_container {
+    display: none;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.tile_content {
+    flex: 1;
+    padding: 10px;
+}
+
+.trigger-enter {
+    display: flex;
+}
