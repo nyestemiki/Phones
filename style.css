@@ -369,6 +369,6 @@ html, body {
     padding: 10px;
 }
 
-.trigger-enter {
+.trigger-enter .tile_container {
     display: flex;
 }

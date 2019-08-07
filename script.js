@@ -429,7 +429,8 @@ function handleEnter() {
 }
 
 function handleLeave() {
-
+    this.classList.remove('trigger-enter');
+    setTimeout(() => this.classList.remove('trigger-enter-active'), 150);
 }
 
 triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
