@@ -372,3 +372,14 @@ html, body {
 .trigger-enter .tile_container {
     display: flex;
 }
+
+.dropdownBackground {
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    border: 1px solid red;
+}
+
+.dropdownBackground.dropdown_open {
+    background: white;
+}

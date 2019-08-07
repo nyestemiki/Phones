@@ -426,11 +426,15 @@ const nav = document.querySelector('.nav');
 function handleEnter() {
     this.classList.add('trigger-enter');
     setTimeout(() => this.classList.add('trigger-enter-active'), 150);
+    background.classList.add('dropdown_open');
+
+    const dropdown = this.querySelector('.tile_container');             
 }
 
 function handleLeave() {
     this.classList.remove('trigger-enter');
     setTimeout(() => this.classList.remove('trigger-enter-active'), 150);
+    background.classList.remove('dropdown_open');
 }
 
 triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
