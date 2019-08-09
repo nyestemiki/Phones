@@ -52,7 +52,7 @@ function selectBrand(brand) {
             moreModelsTo(brand);
             updateTitleTag(brand);
         }, 2000);
-    }, 500);
+    }, 500); 
 }
 
 function adaptBackground() {
