@@ -156,6 +156,25 @@ html, body {
     background: linear-gradient(0deg, rgba(67,111,255,0.5908045977011493) 0%, rgba(255,255,255,0.31264367816091954) 100%);
 }
 
+.brand_background {
+    /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+    z-index: -15;
+    filter: blur(50px);
+    height: 100%;
+    /* width: 100%;
+    top: -10%;
+    left: -10%; */
+    /* transform: scale(2) translate(-9%, -9%);
+    overflow-x: hidden; */
+}
+
 .more_btn, .btn {
     padding: 10px;
     margin: 10px;

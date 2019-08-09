@@ -55,6 +55,17 @@ function selectBrand(brand) {
     }, 500);
 }
 
+function adaptBackground() {
+    const currentContainer = document.querySelector('.brand_selected');
+    currentContainer.style.backgroundImage = "url(" + `${document.querySelector('.brand_selected .img img').src}` + ")";
+    // apply background stuff
+    currentContainer.style.setProperty('background-position', 'center');
+    currentContainer.style.setProperty('background-repeat', 'no-repeat');
+    currentContainer.style.setProperty('background-size', 'cover');
+    currentContainer.style.setProperty('filter', 'blur(50px)');
+    currentContainer.style.setProperty('z-index', '-50');
+}
+
 function initializeModelsDisplayArea() {
     document.querySelector('.brand_selected').innerHTML += "<div class='models models_hover' id='more_phones'></div>";
 }
@@ -163,6 +174,10 @@ function nextModel() {
     setTimeout(() => {
         document.querySelector('.brand_selected .img img').classList.remove('next_model_selected');
     }, 1000);
+
+    setTimeout(() => {
+        adaptBackground();
+    }, 1500);
 }
 
 // Sets brand's title to the modelname and appends more button
