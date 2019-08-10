@@ -146,7 +146,7 @@ html, body {
     order: -1;
 }
 
-.blurred_bg {
+/* .blurred_bg {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -155,7 +155,7 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
     zoom: 350%;
-}
+} */
 
 .brand_background {
     /* Full height */

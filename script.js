@@ -18,7 +18,6 @@ $.getJSON("data.json", data => {
     Object.keys(data.brands).forEach(brand => {
         brands.innerHTML += `
             <div class="brand brand_hover brand${index++}" data-brand="${data.brands[brand].brandname}">
-                <div class="blurred_bg" style="background-image: url('${data.brands[brand].cover}');"></div>
                 <div class="img" data-model="${data.brands[brand].covermodel}">
                     <img src="${data.brands[brand].cover}">
                 </div>
@@ -57,8 +56,15 @@ function selectBrand(brand) {
 }
 
 function adaptBackground() {
-    const currentContainer = document.querySelector('.brand_selected .blurred_bg');
-    currentContainer.style.backgroundImage = "url(" + `${document.querySelector('.brand_selected .img img').src}` + ")";
+    const currentContainer = document.querySelector('.brand_selected');
+    const colorThief = new ColorThief();
+    const image = currentContainer.querySelector('.img img');
+    const color = colorThief.getPalette(image);
+    const gradient = `radial-gradient(circle, 
+        rgb(${color[1][0]}, ${color[1][1]}, ${color[1][2]}),
+        rgb(${color[0][0]}, ${color[0][1]}, ${color[0][2]})
+    `;
+    currentContainer.style.background = gradient;
 }
 
 function initializeModelsDisplayArea() {
