@@ -209,6 +209,7 @@ html, body {
     justify-content: space-evenly;
     font-size: 1.2vw;
     animation: infodisplay .3s;
+    animation-fill-mode: forwards;
     position: relative;
 }
 
@@ -244,6 +245,7 @@ html, body {
 
 .models {
     animation: models .5s;
+    animation-fill-mode: forwards;
     display: flex;
     /* overflow: scroll; */
     overflow: hidden;
@@ -293,12 +295,13 @@ html, body {
 }
 
 .title_modified {
-    animation: titlemodified 1s;
+    animation: titlemodified .5s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes titlemodified {
     from {
-        transform: translateX(-100%);
+        transform: translateX(-300%);
     } to {
         transform: translateX(0%);
     }
@@ -306,6 +309,7 @@ html, body {
 
 .next_model {
     animation: nextmodel 1s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes nextmodel {
@@ -335,6 +339,7 @@ html, body {
     position: absolute;
     top: 40vh;
     animation: arroweffect 3s infinite;
+    animation-fill-mode: forwards;
     background: rgba(255, 255, 255, 1);
     opacity: 0.3;
     border-top-right-radius: 100%;

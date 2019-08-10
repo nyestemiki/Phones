@@ -27,6 +27,13 @@ $.getJSON("data.json", data => {
             </div>`;
     });
 
+    setTimeout(() => {
+        document.querySelectorAll('.brand').forEach(brand => {
+            setBackground(brand)
+        });
+    }, 200);
+    
+
     // Appending eventlisteners
     document.querySelectorAll('.brand').forEach(brand => {
         brand.addEventListener('click', () => selectBrand(brand));
@@ -65,6 +72,18 @@ function adaptBackground() {
         rgb(${color[0][0]}, ${color[0][1]}, ${color[0][2]})
     `;
     currentContainer.style.background = gradient;
+}
+
+function setBackground(brand) {
+    let colorThief = new ColorThief();
+    let image = brand.querySelector('.img img');
+    console.log(image);
+    let color = colorThief.getPalette(image);
+    let gradient = `radial-gradient(circle, 
+        rgb(${color[1][0]}, ${color[1][1]}, ${color[1][2]}) 10%,
+        rgb(${color[0][0]}, ${color[0][1]}, ${color[0][2]})
+    `;
+    brand.style.background = gradient;
 }
 
 function initializeModelsDisplayArea() {
@@ -148,11 +167,22 @@ function backToBeginning() {
     document.querySelector('.brand_selected .img img').classList.add('next_model_selected');
     setTimeout(() => {
         document.querySelector('.brand_selected .img img').classList.remove('next_model_selected');
-    }, 2000);
+    }, 1000);
+    setTimeout(() => {
+        adaptBackground();
+    }, 100);
+    const title = document.querySelector('.brand_selected .brand_name');
+    title.classList.add('title_modified');
+    setTimeout(() => {
+        if (title.classList.contains('title_modified')) {
+            title.classList.remove('title_modified');
+        }
+    }, 500);
+    // Animate virtual scroll
+    document.querySelector('.brand_selected .models').classList.toggle('next_model');
 }
 
 function nextModel() {
-    
     currentModelGlobal = document.querySelectorAll('.brand_selected .model')[0]; 
     // No more models to display
     if (!currentModelGlobal) {
@@ -178,13 +208,26 @@ function nextModel() {
 
     setTimeout(() => {
         adaptBackground();
-    }, 1001);
+    }, 50);
+
+    const title = document.querySelector('.brand_selected .brand_name');
+    title.classList.add('title_modified');
+    setTimeout(() => {
+        if (title.classList.contains('title_modified')) {
+            title.classList.remove('title_modified');
+        }
+    }, 500);
 }
 
 // Sets brand's title to the modelname and appends more button
 function updateTitleTag(brand) {
     let title = brand.querySelector('.title span');
     title.classList.add('title_modified');
+    setTimeout(() => {
+        if (title.classList.contains('title_modified')) {
+            title.classList.remove('title_modified');
+        }
+    }, 500);
     $.getJSON("data.json", data => {
         Object.keys(data.brands)
         .filter(key => key === brand.dataset.brand)
@@ -390,11 +433,11 @@ function mainMenu() {
 
     // Unselecting the brand
     setTimeout(() => {
-        document.querySelector('.brand_selected').classList.remove('brand_selected');
         // Setting back the brand's title
-        let title = document.querySelector('.title_modified');
+        let title = document.querySelector('.brand_selected .brand_name');
         title.textContent = title.parentElement.parentElement.dataset.brand;
-        title.classList.remove('title_modified');
+
+        document.querySelector('.brand_selected').classList.remove('brand_selected');
     }, 260);
     
     // Animation started
