@@ -49,6 +49,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     align-content: center;
+    position: relative;
 }
 
 .brand_hover:hover {
@@ -133,6 +134,10 @@ html, body {
     margin: 15px;
 }
 
+.title {
+    z-index: 10;
+}
+
 .brand_selected #more_phones {
     flex: 2;
 }
@@ -141,19 +146,15 @@ html, body {
     order: -1;
 }
 
-.brand1 { 
-    background: rgb(0,18,255);
-    background: linear-gradient(0deg, rgba(0,18,255,0.3563218390804598) 9%, rgba(193,100,194,0.5908045977011493) 100%);    
-}
-
-.brand2 { 
-    background: rgb(155,0,255);
-    background: linear-gradient(0deg, rgba(155,0,255,0.24827586206896557) 9%, rgba(245,122,40,0.5908045977011493) 100%);
-}
-
-.brand3 { 
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(67,111,255,0.5908045977011493) 0%, rgba(255,255,255,0.31264367816091954) 100%);
+.blurred_bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(25px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    zoom: 350%;
 }
 
 .brand_background {
@@ -208,6 +209,7 @@ html, body {
     justify-content: space-evenly;
     font-size: 1.2vw;
     animation: infodisplay .3s;
+    position: relative;
 }
 
 @keyframes infodisplay {

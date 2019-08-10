@@ -18,7 +18,8 @@ $.getJSON("data.json", data => {
     Object.keys(data.brands).forEach(brand => {
         brands.innerHTML += `
             <div class="brand brand_hover brand${index++}" data-brand="${data.brands[brand].brandname}">
-                <div class="img" data-model=${data.brands[brand].covermodel}>
+                <div class="blurred_bg" style="background-image: url('${data.brands[brand].cover}');"></div>
+                <div class="img" data-model="${data.brands[brand].covermodel}">
                     <img src="${data.brands[brand].cover}">
                 </div>
                 <div class="title">
@@ -56,14 +57,8 @@ function selectBrand(brand) {
 }
 
 function adaptBackground() {
-    const currentContainer = document.querySelector('.brand_selected');
+    const currentContainer = document.querySelector('.brand_selected .blurred_bg');
     currentContainer.style.backgroundImage = "url(" + `${document.querySelector('.brand_selected .img img').src}` + ")";
-    // apply background stuff
-    currentContainer.style.setProperty('background-position', 'center');
-    currentContainer.style.setProperty('background-repeat', 'no-repeat');
-    currentContainer.style.setProperty('background-size', 'cover');
-    currentContainer.style.setProperty('filter', 'blur(50px)');
-    currentContainer.style.setProperty('z-index', '-50');
 }
 
 function initializeModelsDisplayArea() {
@@ -177,7 +172,7 @@ function nextModel() {
 
     setTimeout(() => {
         adaptBackground();
-    }, 1500);
+    }, 1001);
 }
 
 // Sets brand's title to the modelname and appends more button
