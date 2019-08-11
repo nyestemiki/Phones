@@ -2,6 +2,11 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Nav bar */
@@ -79,6 +84,8 @@ html, body {
 
 .brand .img img {
     height: 75%;
+    /* Remove for old (middle-positioned) design */
+    /* transform: translateY(150px) translateX(110px) scale(2); */
 }
 
 .brand .title {
@@ -93,6 +100,12 @@ html, body {
     justify-content: center;
     text-transform: capitalize;
     transition: all 1s;
+    /* transform: translateX(-80px); */
+    /* text-shadow: 0 0 10px rgba(255, 255, 255, .5); */
+}
+
+.brand .title .brand_name {
+    margin: 10px;
 }
 
 .brand_hide {
@@ -127,6 +140,10 @@ html, body {
 .brand_selected .img {
     flex: 1;
     transform: scale(1.5);
+}
+
+.brand_selected .img img {
+    transform: translateX(0) translateY(0) scale(1);
 }
 
 .brand_selected .title {
@@ -239,8 +256,8 @@ html, body {
 }
 
 .spec_word {
-    background: rgba(0, 0, 0, .15);
-    border-radius: 5px;
+    text-transform: capitalize;
+    font-weight: bold;
 }
 
 .models {
@@ -383,21 +400,37 @@ html, body {
 
 .tile_title {
     cursor: default;
+    letter-spacing: 0;
 }
 
+/* .tile_container::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: -10px;
+    transform: rotate(45deg);
+    background: whitesmoke;
+    opacity: .75;
+} */
+
 .tile_container {
+    position: fixed;
     display: none;
     flex-flow: column;
     justify-content: center;
     align-content: center;
     align-items: center;
     opacity: 0;
-    top: 15px;
+    top: 50px;
 }
 
 .tile_content {
     flex: 1;
     padding: 10px;
+    font-size: 12.5px;
+    letter-spacing: 0;
+    border-radius: 5px;
 }
 
 .trigger-enter .tile_container {
@@ -419,4 +452,18 @@ html, body {
 
 .dropdownBackground.dropdown_open {
     background: white;
+}
+
+.dropdownOptionHover {
+    position: absolute;
+    z-index: 5;
+    will-change: transform;
+    transition: all .2s;
+    border-radius: 5px;
+    background: green;
+    background: gray;
+}
+
+.tile:hover .tile_title {
+    text-shadow: 0 0 10px rgba(255, 255, 255, .75);
 }

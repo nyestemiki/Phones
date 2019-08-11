@@ -77,7 +77,6 @@ function adaptBackground() {
 function setBackground(brand) {
     let colorThief = new ColorThief();
     let image = brand.querySelector('.img img');
-    console.log(image);
     let color = colorThief.getPalette(image);
     let gradient = `radial-gradient(circle, 
         rgb(${color[1][0]}, ${color[1][1]}, ${color[1][2]}) 10%,
@@ -295,62 +294,18 @@ function moreInfoOn(brand, modelname) {
                         displayArea.innerHTML = "<div class='info_box'>No info</div>";
                         return;
                     }
-                    displayArea.innerHTML += `
-                        <div class="info_box">
-                            <div>
-                                <span class="spec_type">Display</span> | 
-                                <span class="spec_word">${modelDataObject.display.size}</span> inch
-                                <span class="spec_word">${modelDataObject.display.type}</span> with a resolution of
-                                <span class="spec_word">${modelDataObject.display.resolution}</span> in a ratio of
-                                <span class="spec_word">${modelDataObject.display.ratio}</span> protected by 
-                                <span class="spec_word">${modelDataObject.display.protection}</span>
-                            </div>
-                        </div>
-                        <div class="info_box">
-                            <div>
-                                <span class="spec_type">Body</span> | 
-                                <span class="spec_word">${modelDataObject.body.size}</span> mm
-                                (<span class="spec_word">${modelDataObject.body.weight}</span>g)
-                            </div>
-                        </div>
-                        <div class="info_box">
-                            <div>
-                                <span class="spec_type">OS</span> | 
-                                <span class="spec_word">${modelDataObject.os}</span>
-                            </div>
-                        </div>
-                        <div class="info_box">
-                            <div>
-                                <span class="spec_type">Processor</span> | 
-                                <span class="spec_word">${modelDataObject.cpu.name}</span> with
-                                <span class="spec_word">${modelDataObject.cpu.cores}</span> cores
-                            </div>
-                        </div>
-                        <div class="info_box">
-                            <div>
-                                <span class="spec_type">Storage</span> | 
-                                <span class="spec_word">${modelDataObject.ram}</span> GB RAM,
-                                <span class="spec_word">${modelDataObject.storage}</span> GB internal storage
-                            </div>
-                        </div>
-                        <div class="info_box">
-                            <div>
-                                <span class="spec_type">Camera</span> | 
-                                <span class="spec_word">${modelDataObject.camera}</span> main lens and
-                                <span class="spec_word">${modelDataObject.selfie}</span> for selfies
-                            </div>
-                        </div>
-                        <div class="info_box">
-                            <div>
-                                <span class="spec_type">Battery</span> | 
-                                <span class="spec_word">${modelDataObject.battery}</span> mAh
-                            </div>
-                        </div>
-                    `;
+                    Object.keys(modelDataObject)
+                        .filter(spec => spec !== "img")
+                        .map(spec => {
+                            displayArea.innerHTML += `
+                                <div class="info_box">
+                                    <div class="spec_word">${spec}</div>: ${modelDataObject[spec]}
+                                </div>
+                            `;
+                        });
                 });
         });
     });
-
     return modelDisplay;
 }
 
@@ -481,6 +436,8 @@ logo.addEventListener('click', mainMenu);
 const triggers = document.querySelectorAll('.tiles .tile');
 const background = document.querySelector('.dropdownBackground');
 const nav = document.querySelector('.nav');
+const navOptions = document.querySelectorAll('.tile_content');
+const hoverBackground = document.querySelector('.dropdownOptionHover');
 
 function handleEnter() {
     this.classList.add('trigger-enter');
@@ -500,7 +457,6 @@ function handleEnter() {
     background.style.setProperty('width', `${coords.width}px`);
     background.style.setProperty('height', `${coords.height}px`);  
     background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px`);
-    background.style.setProperty('height', `${coords.height}px`);  
 }
 
 function handleLeave() {
@@ -509,5 +465,30 @@ function handleLeave() {
     background.classList.remove('dropdown_open');
 }
 
+function optionHoverEnter() {
+    const thisCoords = this.getBoundingClientRect();
+    const backgroundCoords = background.getBoundingClientRect();
+    const coords = {
+        height: thisCoords.height,
+        width: backgroundCoords.width,
+        top: thisCoords.top,
+        left: backgroundCoords.left
+    };
+    if (this.parentElement.parentElement.classList.contains('trigger-enter-active'))  {
+        this.style.color = "rgba(255, 255, 255, .75)";
+        hoverBackground.style.opacity = "1";  
+        hoverBackground.style.setProperty('width', `${coords.width+1}px`);
+        hoverBackground.style.setProperty('height', `${coords.height+1}px`);  
+        hoverBackground.style.setProperty('transform', `translate(${coords.left-0.5}px, ${coords.top-0.5}px`);
+    }
+}
+
+function optionHoverLeave() {
+    this.style.color = "black";
+    hoverBackground.style.opacity = "0";
+}
+
 triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
 triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+navOptions.forEach(navOption => navOption.addEventListener('mouseenter', optionHoverEnter));
+navOptions.forEach(navOption => navOption.addEventListener('mouseleave', optionHoverLeave));

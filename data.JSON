@@ -2,33 +2,20 @@
     "brands": {
         "Samsung": {
             "brandname": "Samsung",
-            "covermodel": "S10Plus",
+            "covermodel": "S10+",
             "cover": "imgs/Samsung/s10+.png",
             "modelList": {
-                "S10Plus": {
+                "S10+": {
                     "img": "imgs/Samsung/s10+.png",
-                    "body": {
-                        "size": "157.6 x 74.1 x 7.8",
-                        "weight": "175"
-                    },
-                    "display": {
-                        "type": "Amoled",
-                        "size": "6.4",
-                        "resolution": "1440x3040",
-                        "ratio": "19:9",
-                        "protection": "Corning Gorilla Glass 6"
-                    },
+                    "body": "157.6 x 74.1 x 7.8mm, 175g",
+                    "display": "Amoled, 6.4\", 1440x3040px, 19:9, Gorilla Glass 6",
                     "os": "Android 9.0",
-                    "cpu": {
-                        "name": "Snapdragon 855",
-                        "cores": "8",
-                        "coresHz": ["2.73", "2.73", "2.31", "2.31", "1.95", "1.95", "1.95", "1.95"]
-                    },
-                    "ram": "12",
-                    "storage": "1000",
+                    "cpu": "Snapdragon 855, 8 cores",
+                    "ram": "12 GB",
+                    "storage": "1 TB",
                     "camera": "12, 12, 16 MP",
                     "selfie": "10, 8 MP",
-                    "battery": "4100"
+                    "battery": "4100 mAh"
                 },
                 "A40": {
                     "img": "imgs/Samsung/a40.png"
@@ -63,32 +50,15 @@
                 },
                 " 8": {
                     "img": "imgs/Apple/8.png",
-                    "body": {
-                        "size": {
-                            "height": "138.4",
-                            "width": "76.3",
-                            "thickness": "7.3"
-                        },
-                        "weight": "148"
-                    },
-                    "display": {
-                        "type": "IPS LCD",
-                        "size": "4.7",
-                        "resolution": "750x1334",
-                        "ratio": "16:9",
-                        "protection": "Oleophobic Coating"
-                    },
+                    "body": "138.4 x 76.3 x 7.3mm, 148g",
+                    "display": "IPS LCD, 4.7\" 750x1334px, 16:9, Oleophobic Coating",
                     "os": "iOS 11",
-                    "cpu": {
-                        "name": "A11 Bionic",
-                        "cores": "6",
-                        "coresHz": ["Monsoon", "Monsoon", "Mistral", "Mistral", "Mistral", "Mistral"]
-                    },
-                    "ram": "2",
-                    "storage": "256",
+                    "cpu": "A11 Bionic, 6 cores",
+                    "ram": "2 GB",
+                    "storage": "256 GB",
                     "camera": "12 MP",
                     "selfie": "7 MP",
-                    "battery": "1821"
+                    "battery": "1821 mAh"
                 },
                 "X": {
                     "img": "imgs/Apple/x.png"
@@ -123,32 +93,15 @@
                 },
                 "OP7Pro": {
                     "img": "imgs/OnePlus/7pro.png",
-                    "body": {
-                        "size": {
-                            "height": "162.6",
-                            "width": "75.9",
-                            "thickness": "8.8"
-                        },
-                        "weight": "206"
-                    },
-                    "display": {
-                        "type": "Amoled",
-                        "size": "6.67",
-                        "resolution": "1440x3120",
-                        "ratio": "19.5:9",
-                        "protection": "Corning Gorilla Glass 5"
-                    },
+                    "body": "162.6 x 75.9 x 8.8mm, 206g",
+                    "display": "Amoled, 6.67\", 1440x3120px, 19.5:9, Gorilla Glass 5",
                     "os": "Android 9.0",
-                    "cpu": {
-                        "name": "Snapdragon 855",
-                        "cores": "8",
-                        "coresHz": ["2.84", "2.42", "2.42", "2.42", "1.8", "1.8", "1.8", "1.8"]
-                    },
-                    "ram": "12",
-                    "storage": "256",
+                    "cpu": "Snapdragon 855, 8 cores",
+                    "ram": "12 GB",
+                    "storage": "256 GB",
                     "camera": "48, 8, 16 MP",
                     "selfie": "16 MP",
-                    "battery": "4000"
+                    "battery": "4000 mAh"
                 }
             }
         }

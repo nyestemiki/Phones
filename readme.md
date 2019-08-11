@@ -1,8 +1,10 @@
-### To Do
+### Setup
+- npm install colorthief
+- start a server
 
-- Nav bar fill
-- manager tab
-- specs: category/string
-- (react?)
-- responsive design
-- refactoring, clean-up, comments
+### Possible Further Features
+
+- Manager tab (CRUD products)
+- React?
+- Responsive Design
+- Refactoring
