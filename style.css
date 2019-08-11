@@ -49,7 +49,8 @@ a {
 .brand {
     height: 100vh;
     flex: 1;
-    transition: all 2s;
+    transition: all .8s;
+    transition-timing-function: cubic-bezier(0.68,-0.55, 0.49, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
