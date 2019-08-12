@@ -299,10 +299,11 @@ function moreInfoOn(brand, modelname) {
                         .map(spec => {
                             displayArea.innerHTML += `
                                 <div class="info_box">
-                                    <div class="spec_word">${spec}</div>: ${modelDataObject[spec]}
+                                    <div class="spec_word">${spec}</div>${modelDataObject[spec]}
                                 </div>
                             `;
                         });
+                    displayArea.innerHTML += `<div class="btn">Buy</div>`;
                 });
         });
     });

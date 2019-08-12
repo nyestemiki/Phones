@@ -3,6 +3,7 @@ html, body {
     padding: 0;
     border: 0;
     overflow: hidden;
+    font-family: sans-serif;
 }
 
 a {
@@ -49,7 +50,7 @@ a {
 .brand {
     height: 100vh;
     flex: 1;
-    transition: all .8s;
+    transition: all .75s;
     transition-timing-function: cubic-bezier(0.68,-0.55, 0.49, 1);
     display: flex;
     flex-direction: column;
@@ -211,7 +212,7 @@ a {
 
 .btn {
     align-self: center;
-    justify-self: center;
+    justify-self: baseline;
 }
 
 .flex_column {
@@ -220,11 +221,9 @@ a {
 }
 
 .info_display {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 50% 50%;
     margin: 15px;
-    align-content: center;
-    justify-content: space-evenly;
     font-size: 1.2vw;
     animation: infodisplay .3s;
     animation-fill-mode: forwards;
@@ -240,20 +239,12 @@ a {
 }
 
 .info_box {
-    border: 6px solid rgba(0, 0, 0, 0.35);
-    border-radius: 5px;
     padding: 10px;
     margin: 8px;
-    color: rgba(5, 5, 177, 0.596);
-    text-align: center;
-    display: flex;
-    align-items: center;
 }
 
 .spec_type {
-    border: 1px solid rgba(0, 0, 0, 0.35);
-    border-radius: 5px;
-    padding: 2px;
+    
 }
 
 .spec_word {
@@ -402,6 +393,7 @@ a {
 .tile_title {
     cursor: default;
     letter-spacing: 0;
+    font-size: 1.25vw;
 }
 
 /* .tile_container::before {
