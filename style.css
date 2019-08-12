@@ -24,6 +24,7 @@ a {
     max-width: 15px; 
     margin: 10px;
     margin-left: 25px;
+    filter: contrast(500%) grayscale(100%);
 }
 
 .logo img:hover {
@@ -465,4 +466,9 @@ a {
 
 .tile:hover .tile_title {
     text-shadow: 0 0 10px white;
+}
+
+.no_info {
+    align-self: center;
+    justify-self: center;
 }

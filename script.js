@@ -291,7 +291,7 @@ function moreInfoOn(brand, modelname) {
                     const modelDataObject = data.brands[currentBrand].modelList[currentModel];
                     displayArea.classList.add('info_display');
                     if (!modelDataObject.body) {
-                        displayArea.innerHTML = "<div class='info_box'>No info</div>";
+                        displayArea.innerHTML = "<div class='info_box no_info'>No information available</div>";
                         return;
                     }
                     Object.keys(modelDataObject)

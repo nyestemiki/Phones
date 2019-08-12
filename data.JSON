@@ -2,9 +2,12 @@
     "brands": {
         "Samsung": {
             "brandname": "Samsung",
-            "covermodel": "S10+",
-            "cover": "imgs/Samsung/s10+.png",
+            "covermodel": "S8",
+            "cover": "imgs/Samsung/s8.png",
             "modelList": {
+                "S8": {
+                    "img": "imgs/Samsung/s8.png"
+                },
                 "S10+": {
                     "img": "imgs/Samsung/s10+.png",
                     "body": "157.6 x 74.1 x 7.8mm, 175g",
@@ -29,9 +32,6 @@
                 "S9": {
                     "img": "imgs/Samsung/s9.png"
                 },
-                "S8": {
-                    "img": "imgs/Samsung/s8.png"
-                },
                 "S10e": {
                     "img": "imgs/Samsung/s10e.png"
                 }
@@ -39,9 +39,12 @@
         },
         "Apple": {
             "brandname": "Apple",
-            "covermodel": "XsMax",
-            "cover": "imgs/Apple/xsmax.png",
+            "covermodel": "X",
+            "cover": "imgs/Apple/x.png",
             "modelList": {
+                "X": {
+                    "img": "imgs/Apple/x.png"
+                },
                 "XsMax": {
                     "img": "imgs/Apple/xsmax.png"
                 },
@@ -60,9 +63,6 @@
                     "selfie": "7 MP",
                     "battery": "1821 mAh"
                 },
-                "X": {
-                    "img": "imgs/Apple/x.png"
-                },
                 "Xr": {
                     "img": "imgs/Apple/xr.png"
                 },
@@ -73,9 +73,21 @@
         },
         "OnePlus": {
             "brandname": "OnePlus",
-            "covermodel": "OP6T",
-            "cover": "imgs/OnePlus/6t.png",
+            "covermodel": "OP7Pro",
+            "cover": "imgs/OnePlus/7pro.png",
             "modelList": {
+                "OP7Pro": {
+                    "img": "imgs/OnePlus/7pro.png",
+                    "body": "162.6 x 75.9 x 8.8mm, 206g",
+                    "display": "Amoled, 6.67\", 1440x3120px, 19.5:9, Gorilla Glass 5",
+                    "operating system": "Android 9.0",
+                    "processor": "Snapdragon 855, 8 cores",
+                    "ram": "12 GB",
+                    "storage": "256 GB",
+                    "camera": "48, 8, 16 MP",
+                    "selfie": "16 MP",
+                    "battery": "4000 mAh"
+                },
                 "OP6T": {
                     "img": "imgs/OnePlus/6t.png"
                 },
@@ -90,18 +102,6 @@
                 },
                 "OP7": {
                     "img": "imgs/OnePlus/7.png"
-                },
-                "OP7Pro": {
-                    "img": "imgs/OnePlus/7pro.png",
-                    "body": "162.6 x 75.9 x 8.8mm, 206g",
-                    "display": "Amoled, 6.67\", 1440x3120px, 19.5:9, Gorilla Glass 5",
-                    "operating system": "Android 9.0",
-                    "processor": "Snapdragon 855, 8 cores",
-                    "ram": "12 GB",
-                    "storage": "256 GB",
-                    "camera": "48, 8, 16 MP",
-                    "selfie": "16 MP",
-                    "battery": "4000 mAh"
                 }
             }
         }
