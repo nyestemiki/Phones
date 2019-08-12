@@ -178,12 +178,12 @@ a {
 
 .brand_background {
     /* Full height */
-  height: 100%; 
+    height: 100%; 
   
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     z-index: -15;
     filter: blur(50px);
@@ -199,15 +199,18 @@ a {
     padding: 10px;
     margin: 10px;
     background: none;
-    border: 1px solid black;
-    border-radius: 4px;
-    font-size: 1vw;
+    border-radius: 3px;
+    font-size: 1.25vw;
     cursor: pointer;
+    backdrop-filter: blur(50px);
+    background-color: rgba(255, 255, 255, .25);
+    border-radius: 10px;
+    letter-spacing: 1px;
 }
 
 .more_btn:hover, .btn:hover {
-    background: rgba(0, 0, 0, 0.3);
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
@@ -228,6 +231,9 @@ a {
     animation: infodisplay .3s;
     animation-fill-mode: forwards;
     position: relative;
+    backdrop-filter: blur(50px);
+    background-color: rgba(255, 255, 255, .125);
+    border-radius: 10px;
 }
 
 @keyframes infodisplay {
@@ -458,5 +464,5 @@ a {
 }
 
 .tile:hover .tile_title {
-    text-shadow: 0 0 10px rgba(255, 255, 255, .75);
+    text-shadow: 0 0 10px white;
 }

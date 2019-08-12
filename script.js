@@ -235,7 +235,7 @@ function updateTitleTag(brand) {
             const modelname = brand.querySelector('.title span');
             modelname.textContent = document.querySelector('.brand_selected .img').dataset.model; 
             // Appending more button
-            brand.querySelector('.title').innerHTML += '<div class="more_btn">More</div>';
+            brand.querySelector('.title').innerHTML += '<div class="more_btn">Learn more</div>';
             brand.querySelector('.more_btn').addEventListener('click', handelMoreInfoButton);
             brand.querySelector('.title').classList.add('flex_column');
         });
@@ -254,13 +254,13 @@ function handelMoreInfoButton() {
 
     if (isExpanded) {
         document.querySelector('#more_phones').innerHTML = moreModelsTo(brand) || "More Models";
-        document.querySelector('.more_btn').textContent = "More";
+        document.querySelector('.more_btn').textContent = "Learn more";
         document.querySelector('#more_phones').classList.add('models');
         document.querySelector('#more_phones').classList.remove('info_display');
         resetEventListeners();
     } else {
         modelDisplayGlobal = moreInfoOn(brand.dataset.brand, modelname);
-        document.querySelector('.more_btn').textContent = "Less";
+        document.querySelector('.more_btn').textContent = "More models";
         document.querySelector('#more_phones').classList.add('info_display');
         document.querySelector('#more_phones').classList.remove('models');
         document.querySelector('#more_phones').classList.remove('models_hover');
