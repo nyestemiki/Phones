@@ -2,13 +2,13 @@
     "brands": {
         "Samsung": {
             "brandname": "Samsung",
-            "covermodel": "S8",
+            "covermodel": "Galaxy S8",
             "cover": "imgs/Samsung/s8.png",
             "modelList": {
-                "S8": {
+                "Galaxy S8": {
                     "img": "imgs/Samsung/s8.png"
                 },
-                "S10+": {
+                "Galaxy S10+": {
                     "img": "imgs/Samsung/s10+.png",
                     "body": "157.6 x 74.1 x 7.8mm, 175g",
                     "display": "Amoled, 6.4\", 1440x3040px, 19:9, Gorilla Glass 6",
@@ -20,38 +20,38 @@
                     "selfie": "10, 8 MP",
                     "battery": "4100 mAh"
                 },
-                "A40": {
+                "Galaxy A40": {
                     "img": "imgs/Samsung/a40.png"
                 },
-                "A70": {
+                "Galaxy A70": {
                     "img": "imgs/Samsung/a70.png"
                 },
-                "M20": {
+                "Galaxy M20": {
                     "img": "imgs/Samsung/m20.png"
                 },
-                "S9": {
+                "Galaxy S9": {
                     "img": "imgs/Samsung/s9.png"
                 },
-                "S10e": {
+                "Galaxy S10e": {
                     "img": "imgs/Samsung/s10e.png"
                 }
             }
         },
         "Apple": {
             "brandname": "Apple",
-            "covermodel": "X",
+            "covermodel": "iPhone X",
             "cover": "imgs/Apple/x.png",
             "modelList": {
-                "X": {
+                "iPhone X": {
                     "img": "imgs/Apple/x.png"
                 },
-                "XsMax": {
+                "iPhone XsMax": {
                     "img": "imgs/Apple/xsmax.png"
                 },
-                " 7": {
+                "iPhone  7": {
                     "img": "imgs/Apple/7.png"
                 },
-                " 8": {
+                "iPhone  8": {
                     "img": "imgs/Apple/8.png",
                     "body": "138.4 x 76.3 x 7.3mm, 148g",
                     "display": "IPS LCD, 4.7\" 750x1334px, 16:9, Oleophobic Coating",
@@ -63,20 +63,20 @@
                     "selfie": "7 MP",
                     "battery": "1821 mAh"
                 },
-                "Xr": {
+                "iPhone Xr": {
                     "img": "imgs/Apple/xr.png"
                 },
-                "Xs": {
+                "iPhone Xs": {
                     "img": "imgs/Apple/xs.png"
                 }
             }
         },
         "OnePlus": {
             "brandname": "OnePlus",
-            "covermodel": "OP7Pro",
+            "covermodel": "One+ 7Pro",
             "cover": "imgs/OnePlus/7pro.png",
             "modelList": {
-                "OP7Pro": {
+                "One+ 7Pro": {
                     "img": "imgs/OnePlus/7pro.png",
                     "body": "162.6 x 75.9 x 8.8mm, 206g",
                     "display": "Amoled, 6.67\", 1440x3120px, 19.5:9, Gorilla Glass 5",
@@ -88,19 +88,19 @@
                     "selfie": "16 MP",
                     "battery": "4000 mAh"
                 },
-                "OP6T": {
+                "One+ 6T": {
                     "img": "imgs/OnePlus/6t.png"
                 },
-                "OP5": {
+                "One+ 5": {
                     "img": "imgs/OnePlus/5.png"
                 },
-                "OP5T": {
+                "One+ 5T": {
                     "img": "imgs/OnePlus/5t.png"
                 },
-                "OP6TMaclaren": {
+                "One+ 6T Maclaren": {
                     "img": "imgs/OnePlus/6tmaclaren.png"
                 },
-                "OP7": {
+                "One+ 7": {
                     "img": "imgs/OnePlus/7.png"
                 }
             }

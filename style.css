@@ -101,7 +101,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     transition: all 1s;
     /* transform: translateX(-80px); */
     /* text-shadow: 0 0 10px rgba(255, 255, 255, .5); */
@@ -471,4 +471,8 @@ a {
 .no_info {
     align-self: center;
     justify-self: center;
+}
+
+.iPhone {
+    text-transform: none;
 }
