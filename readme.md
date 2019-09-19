@@ -1,15 +1,12 @@
-### Please start a server and if possible use Google Chrome
+### Please start a server
+- a simple php server will do (as developed and tested on a php server)
+- if possible please use Google Chrome (as developed and tested on Google Chrome)
 
 ## This project is ONLY a design
 
-### It was not intended to be a web application therefore you will NOT
-- be able to do anything but try the design
-- experience responsive design
-- find any frameworks 
-
 ### Possible future features
-
 - Manager tab (CRUD operations for products)
-- React (or another framework)
-- Responsive Design for smaller screens
-- Support for other browsers (currently developed for and tested on Google Chrome)
+- Responsive Design
+- Support for other browsers
+
+## The same project in React: https://github.com/nyestemiki/phones-react
